@@ -1,0 +1,11 @@
+{
+  "name": "ws",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Jirachai Chansivanon <antronic.inc@gmail.com>",
+  "license": "BSD-3",
+  "private": true,
+  "dependencies": {
+    "socket.io": "^2.1.1"
+  }
+}
