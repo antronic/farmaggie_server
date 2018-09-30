@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./style.css">
+  <script type="text/javascript" src="./socket.io.slim.js"></script>
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="top-bg"></div>
+  <div class="container">
+    <div class="layout">
+      <div class="top">
+        <div id="temp">
+          <h1>0.0°</h1>
+        </div>
+        <div id="hud">
+          <h3>0%</h3>
+        </div>
+      </div>
+
+      <div class="middle">
+        <p>3CA30897E4CE</p>
+        <div id="est">
+          <p>1</p>
+          <div id="sen1" class="sensor" style="width: 30%;"></div>
+          <div id="sen2" class="sensor" style="width: 30%;"></div>
+          <p>2</p>
+        </div>
+        <p>3CA30897E0E2</p>
+        <div id="est2">
+          <p>1</p>
+          <div id="sen12" class="sensor" style="width: 30%;"></div>
+          <div id="sen22" class="sensor" style="width: 30%;"></div>
+          <p>2</p>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <canvas id="gp" width="100%" height="100%"></canvas>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript" src="./Chart.min.js"></script>
+<script type="text/javascript" src="./script.js"></script>
+</html>
