@@ -1,16 +1,21 @@
-const server = require('http').createServer()
+const app = require('express')()
+const http = require('http').Server(app)
+const io = require('socket.io')(http)
 
-const io = require('socket.io')(server, {
-  path: '/ws/iot/farm',
-  serveClient: false,
-  // below are engine.IO options
-  pingInterval: 10000,
-  pingTimeout: 5000,
-  cookie: false
+const line = require('./line')
+
+let recent_temp = ''
+let recent_hud = ''
+let pigs = {}
+
+app.get('/info', (req, res) => {
+  res.json({
+    temp: recent_temp,
+    humidity: recent_hud,
+  })
 })
 
-const listener = server.listen(3000, () => {
-  console.log(`WS is running on ${listener.address().port}`)
+app.get('/poles', (req, res) => {
 })
 
 io.on('connection', (socket) => {
@@ -21,9 +26,59 @@ io.on('connection', (socket) => {
     // send new values from pole
     // to subscriber
     let data = msg
-    // #NAME:PEN_1#DEVICES:2#DATA:[["pole_1"]]
-    io.emit('pole_listener', data)
+
+    // If pig already in vars
+    if (Object.hasOwnProperty.call(pigs, data.mac) > 0) {
+      const old_data = pigs[data.mac]
+
+      Object.assign(pigs, {}, {
+        [data.mac]: Object.assign({}, old_data, { [data.device]: data.rssi }),
+      })
+    } else {
+      Object.assign(pigs, {}, {
+        [data.mac]: {
+          [data.device]: data.rssi
+        }
+      })
+    }
+
+    console.log(pigs)
+    io.emit('pole_update_web', data)
   })
 
-  socket.on('disconnect', () => {})
+  var emit_msg_time = 0
+
+  function checkDangerTemp(temp, hud) {
+    if (parseInt(temp, 10) > 31 && parseInt(hud, 10) > 50) {
+      return true
+    }
+    return false
+  }
+
+  socket.on('dht_update', (msg) => {
+    const temp = msg.temp
+    const hud = msg.hud
+
+    recent_temp = temp
+    recent_hud = hud
+
+    if (checkDangerTemp(temp, hud) && new Date().getTime() >= emit_msg_time + 300000) {
+      emit_msg_time = new Date().getTime()
+      line.sendMessage([
+        {
+          type: 'text',
+          text: `ตอนนี้อุณหภูมิ ${temp}°C และความชื้น ${hud}% หมูร้อนสุดๆ จะเป็นหมูย่างแล้ว ราดน้ำด่วน!`
+        }
+      ])
+    }
+
+    io.emit('temp_update', temp)
+    io.emit('hud_update', hud)
+  })
+
+  socket.on('disconnect', () => { })
+})
+
+const listener = http.listen(3000, () => {
+  console.log(`WS is running on ${listener.address().port}`)
 })

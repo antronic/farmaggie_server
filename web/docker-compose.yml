@@ -1,0 +1,36 @@
+version: "3"
+services:
+  api:
+    build: "./api"
+    ports:
+      - "9000:9000"
+    # networks:
+    #   - backend
+    depends_on:
+      - db
+    volumes:
+      - ./api:/var/app
+
+  db:
+    image: "mongo:4.0.2-xenial"
+    ports:
+      - "27017"
+    networks:
+      - backend
+    volumes:
+      - mongodb-data:/data/db
+
+  # web:
+  #   image: ""
+
+  # ws:
+    #image:
+
+networks:
+  # frontend:
+  backend:
+    driver: bridge
+
+volumes:
+  mongodb-data:
+    external: true
