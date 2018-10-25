@@ -48,8 +48,12 @@ html, body {
 .layout .middle {
   width: 100%;
   height: 30%;
+  display: flex;
   position: relative;
   overflow: hidden;
+}
+.layout .middle .col-50 {
+  width: 50%;
 }
 .layout .middle #est {
   display: flex;

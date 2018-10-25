@@ -174,15 +174,74 @@ const updateHudChart = (eli) => {
     hud.shift()
   }
   hud.push(el)
+
 }
 
-socket.on('temp_listener', (msg) => {
+let station = ''
+
+socket.on('pole_update_web', (msg) => {
+  const pig = msg['3CA30897E4CE']
+  const pig2 = msg['EFDE59427EDA']
+  let min = -10000
+  let pole = ''
+  let min_2 = -1000
+  let pole_pig_2 = 'pole_1'
+
+  Object.keys(pig).forEach((item, key) => {
+    if (parseInt(pig[item], 10) >= min) {
+      min = parseInt(pig[item], 10)
+      pole = item
+    }
+  })
+
+  if (!pig2 === false) {
+    Object.keys(pig2).forEach((item, key) => {
+      if (parseInt(pig2[item], 10) >= min_2) {
+        min_2 = parseInt(pig2[item], 10)
+        pole_pig_2 = item
+      }
+    })
+  }
+
+  setTimeout(() => {
+    if (pole === station) {
+      // alert('Eating...')
+    }
+    station = pole
+  }, 5000)
+
+  document.querySelector('#pole_1').style.backgroundColor = 'initial'
+  document.querySelector('#pole_2').style.backgroundColor = 'initial'
+  document.querySelector('#pole_3').style.backgroundColor = 'initial'
+  document.querySelector('#pole_4').style.backgroundColor = 'initial'
+
+  document.querySelector('#' + pole).style.backgroundColor = '#0f0'
+
+  document.querySelector('#pole_1').innerHTML = '<h2> POLE 1: ' + pig.pole_1 + '</h2>'
+  document.querySelector('#pole_2').innerHTML = '<h2> POLE 2: ' + pig.pole_2 + '</h2>'
+  document.querySelector('#pole_3').innerHTML = '<h2> POLE 3: ' + pig.pole_3 + '</h2>'
+  document.querySelector('#pole_4').innerHTML = '<h2> POLE 4: ' + pig.pole_4 + '</h2>'
+
+  document.querySelector('#pole_1_1').style.backgroundColor = 'initial'
+  document.querySelector('#pole_2_1').style.backgroundColor = 'initial'
+  document.querySelector('#pole_3_1').style.backgroundColor = 'initial'
+  document.querySelector('#pole_4_1').style.backgroundColor = 'initial'
+
+  document.querySelector('#' + pole_pig_2 + '_1').style.backgroundColor = '#0fd'
+
+  document.querySelector('#pole_1_1').innerHTML = '<h2> POLE 1: ' + pig2.pole_1 + '</h2>'
+  document.querySelector('#pole_2_1').innerHTML = '<h2> POLE 2: ' + pig2.pole_2 + '</h2>'
+  document.querySelector('#pole_3_1').innerHTML = '<h2> POLE 3: ' + pig2.pole_3 + '</h2>'
+  document.querySelector('#pole_4_1').innerHTML = '<h2> POLE 4: ' + pig2.pole_4 + '</h2>'
+})
+
+socket.on('temp_update', (msg) => {
   document.querySelector('#temp').innerHTML = '<h1>' + msg + '°</h1>'
   // updateTempChart(msg)
   // chart.update()
 })
 
-socket.on('hud_listener', (msg) => {
+socket.on('hud_update', (msg) => {
   hud_current = msg
   document.querySelector('#hud').innerHTML = '<h3>' + msg + '%</h3>'
   updateHudChart(msg)
