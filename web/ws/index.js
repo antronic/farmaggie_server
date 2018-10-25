@@ -1,12 +1,22 @@
 const app = require('express')()
 const http = require('http').Server(app)
-const io = require('socket.io')(http)
+const io = require('socket.io')(http, { origins: '*:*' })
+
+io.set('origins', '*:*')
+
+const cors = require('cors')
 
 const line = require('./line')
 
 let recent_temp = ''
 let recent_hud = ''
 let pigs = {}
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.get('/info', (req, res) => {
   res.json({
@@ -43,13 +53,13 @@ io.on('connection', (socket) => {
     }
 
     console.log(pigs)
-    io.emit('pole_update_web', data)
+    io.emit('pole_update_web', pigs)
   })
 
   var emit_msg_time = 0
 
   function checkDangerTemp(temp, hud) {
-    if (parseInt(temp, 10) > 31 && parseInt(hud, 10) > 50) {
+    if (parseInt(temp, 10) > 27 && parseInt(hud, 10) > 50) {
       return true
     }
     return false
@@ -79,6 +89,6 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => { })
 })
 
-const listener = http.listen(3000, () => {
+const listener = http.listen(3003, () => {
   console.log(`WS is running on ${listener.address().port}`)
 })

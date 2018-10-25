@@ -4,17 +4,27 @@ services:
     build: "./api"
     ports:
       - "9000:9000"
-    # networks:
-    #   - backend
+    networks:
+       - backend
     depends_on:
       - db
     volumes:
       - ./api:/var/app
-
+  gql:
+    build: "./gql"
+    ports:
+      - "4000:4000"
+    networks:
+      - backend
+    depends_on:
+      - db
+      - api
+    volumes:
+      - ./gql:/var/app
   db:
     image: "mongo:4.0.2-xenial"
     ports:
-      - "27017"
+      - "27017:27017"
     networks:
       - backend
     volumes:
@@ -23,8 +33,12 @@ services:
   # web:
   #   image: ""
 
-  # ws:
-    #image:
+  ws:
+    build: "./ws"
+    ports:
+      - "3003:3003"
+    depends_on:
+      - api
 
 networks:
   # frontend:
