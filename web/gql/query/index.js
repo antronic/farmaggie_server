@@ -5,5 +5,7 @@ module.exports = {
     return dataSources.farmAPI.getVaccine(_args)
   },
 
-  pigs: () => 'Resolved',
+  pigs: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.getPig(_args)
+  }
 }

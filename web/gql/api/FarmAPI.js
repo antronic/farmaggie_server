@@ -18,4 +18,11 @@ module.exports = class FarmAPI extends RESTDataSource {
       vaccine,
     )
   }
+
+  async getPig(pig) {
+    return this.get(
+      'pig',
+      pig,
+    )
+  }
 }

@@ -10,7 +10,7 @@ const FarmAPI = require('./api/FarmAPI')
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  mocks,
+  mocks: false,
   dataSources: () => ({
     farmAPI: new FarmAPI(),
   })
