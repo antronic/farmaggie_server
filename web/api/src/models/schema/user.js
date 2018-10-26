@@ -1,24 +1,18 @@
 import { Schema } from 'mongoose'
 
 export default new Schema({
-  beacon_id: {
-    type: String,
-    default: '0x00000',
-  },
-
   name: String,
-  age: Number,
-  kids: {
+
+  info: String,
+
+  farm: {
     type: Array,
     default: [],
   },
 
-  vaccine: {
-    type: Array,
-    default: [],
-  },
-
-  birthdate: Date,
+  username: String,
+  password: String,
+  salt: String,
 
   created_by: {
     type: String,

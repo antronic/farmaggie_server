@@ -1,8 +1,16 @@
 {
   "presets": [
-    "latest"
+    "latest", [
+      "env",
+      {
+        "targets": {
+          "node": "8.12.0"
+        }
+      }
+    ]
   ],
   "plugins": [
+    ["transform-runtime"],
     ["module-resolver",
       {
         "root": [
@@ -10,7 +18,8 @@
         ],
         "alias": {
           "controllers": "./src/controllers",
-          "models": "./src/models"
+          "models": "./src/models",
+          "utils": "./src/libs/utils"
         }
       }]
   ]

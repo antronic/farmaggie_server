@@ -3,6 +3,9 @@ import { Router } from 'express'
 import pole from 'controllers/pole'
 import vaccine from 'controllers/vaccine'
 import webhook from 'controllers/webhook'
+import pig from 'controllers/pig'
+
+import user from 'controllers/user'
 
 const router = Router()
 
@@ -17,6 +20,13 @@ const api = (() => Router()
 
   .post('/vaccine/add', vaccine.create)
   .get('/vaccine', vaccine.get)
+  .get('/vaccine/one', vaccine.getOne)
+
+  .post('/pig/add', pig.create)
+  .get('/pig', pig.get)
+
+  .post('/login', user.login)
+  .post('/register', user.register)
 )()
 router.use('/api', api)
 
