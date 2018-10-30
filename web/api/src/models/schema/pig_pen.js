@@ -1,26 +1,13 @@
-import mongoose, { Schema } from 'mongoose'
+import { Schema } from 'mongoose'
 
 export default new Schema({
-  beacon_id: {
-    type: String,
-    default: '0x00000',
-  },
-
   name: String,
-  age: Number,
-  kids: {
+  size: Number,
+
+  pigs: {
     type: Array,
     default: [],
   },
-
-  pen: mongoose.Types.ObjectId,
-
-  vaccine: {
-    type: Array,
-    default: [],
-  },
-
-  birthdate: Date,
 
   created_by: {
     type: String,

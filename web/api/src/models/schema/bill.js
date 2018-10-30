@@ -1,26 +1,16 @@
-import mongoose, { Schema } from 'mongoose'
+import { Schema } from 'mongoose'
 
 export default new Schema({
-  beacon_id: {
+  bill_id: {
     type: String,
-    default: '0x00000',
   },
 
   name: String,
-  age: Number,
-  kids: {
-    type: Array,
-    default: [],
-  },
+  type: String,
+  price: Number,
+  amount: Schema.Types.Mixed,
 
-  pen: mongoose.Types.ObjectId,
-
-  vaccine: {
-    type: Array,
-    default: [],
-  },
-
-  birthdate: Date,
+  payment_status: String,
 
   created_by: {
     type: String,

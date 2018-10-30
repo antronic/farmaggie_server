@@ -4,6 +4,7 @@ import pole from 'controllers/pole'
 import vaccine from 'controllers/vaccine'
 import webhook from 'controllers/webhook'
 import pig from 'controllers/pig'
+import bill from 'controllers/bill'
 
 import user from 'controllers/user'
 
@@ -24,6 +25,9 @@ const api = (() => Router()
 
   .post('/pig/add', pig.create)
   .get('/pig', pig.get)
+
+  .post('/bill/add', bill.create)
+  .get('/bill', bill.get)
 
   .post('/login', user.login)
   .post('/register', user.register)
