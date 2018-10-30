@@ -1,12 +1,8 @@
 module.exports = `
-  type Pig {
+  input createPigInput {
     beacon_id: String
     name: String!
     age: Int
     birthdate: String
-
-    created_by: String
-    created_at: String
-    updated_at: String
   }
 `
