@@ -1,17 +1,12 @@
-import { Schema } from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 
 export default new Schema({
-  bill_id: {
-    type: String,
-  },
-
   name: String,
-  type: String,
-  value: Number,
-  amount: Schema.Types.Mixed,
-  unit: String,
-
-  payment_status: String,
+  mac: {
+    type: String,
+    default: '0x00000'
+  },
+  uid: String,
 
   created_by: {
     type: String,

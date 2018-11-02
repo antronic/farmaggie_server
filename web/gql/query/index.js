@@ -13,7 +13,13 @@ module.exports = {
     return dataSources.farmAPI.getPig(req)
   },
 
-  bills: () => {},
+  bills: async (_source, { request }, { dataSources }) => {
+    const req = {
+      request: JSON.stringify(request || {})
+    }
+
+    return dataSources.farmAPI.getBill(req)
+  },
 
   users: () => {},
 }

@@ -1,10 +1,11 @@
 module.exports = `
-  union value = String | Double | Int
-
-  type createBillInput {
+  input createBillInput {
     name: String!
 
     type: BillType!
-    value: value!
-  } 
+    value: Float!
+
+    amount: Float!
+    unit: String!
+  }
 `

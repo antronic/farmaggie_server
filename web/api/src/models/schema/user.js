@@ -1,9 +1,12 @@
 import { Schema } from 'mongoose'
 
 export default new Schema({
-  name: String,
+  firstname: String,
+  lastname: String,
 
   info: String,
+  farm_size: String,
+  location: Object,
 
   farm: {
     type: Array,

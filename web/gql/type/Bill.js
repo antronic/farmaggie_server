@@ -9,7 +9,11 @@ module.exports = `
     _id: String
     name: String
 
-    type: BillType
+    type: BillType!
+    value: Float!
+
+    amount: Float!
+    unit: String
 
     created_by: String
 
