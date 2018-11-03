@@ -1,5 +1,6 @@
 module.exports = `
   type Pig {
+    _id: String
     beacon_id: String
     name: String!
     age: Int

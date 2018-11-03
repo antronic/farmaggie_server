@@ -2,7 +2,7 @@ import Pig from '../models/Pig'
 
 export default {
   create: (req, res) => {
-    return Pig.createNewPig(req.body.create)
+    return Pig.createNewPig(req.body.pig)
       .then(doc => res.json(doc))
   },
 

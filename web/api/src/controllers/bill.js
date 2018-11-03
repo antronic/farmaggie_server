@@ -2,8 +2,6 @@ import Bill from 'models/Bill'
 
 export default {
   create: (req, res) => {
-
-    console.log(req.body)
     return Bill.create(req.body.bill)
       .then(doc => res.json(doc))
   },

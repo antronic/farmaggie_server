@@ -25,6 +25,7 @@ module.exports = class FarmAPI extends RESTDataSource {
   }
 
   async getPig(pig) {
+    console.log(pig)
     return this.get(
       'pig',
       pig,
