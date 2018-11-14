@@ -12,6 +12,8 @@ let recent_temp = ''
 let recent_hud = ''
 let pigs = {}
 
+let same_address = {}
+
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -31,11 +33,50 @@ app.get('/poles', (req, res) => {
 io.on('connection', (socket) => {
   console.log('a user connected')
 
+  // Restore data
+  io.emit('same_address_web', same_address)
+  io.emit('pole_update_web', pigs)
+
   // when pole send new values
   socket.on('pole_update', (msg) => {
     // send new values from pole
     // to subscriber
     let data = msg
+
+    function getRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    // If pig already in vars
+    // if (data.address === '74278BDAB64445208F0C720EAF059935') {
+    if ((data.address).replace(/DISC|OK|\+/g, '') === 'B9407F30F5F8466EAFF925556B57FE6D') {
+      if (same_address[data.address] === undefined) {
+        Object.assign(same_address, {}, {
+          [data.address]: {}
+        })
+      }
+
+      if (!Object.hasOwnProperty.call(same_address[data.address], data.mac)) {
+        Object.assign(same_address, {}, {
+          [data.address]: {
+            ...same_address[data.address],
+            [data.mac]: getRandomColor(),
+          }
+        })
+      } else {
+        Object.assign(same_address, {}, {
+          [data.address]: {
+            ...same_address[data.address],
+            [data.mac]: same_address[data.address][data.mac],
+          }
+        })
+      }
+    }
 
     // If pig already in vars
     if (Object.hasOwnProperty.call(pigs, data.mac) > 0) {
@@ -52,7 +93,7 @@ io.on('connection', (socket) => {
       })
     }
 
-    console.log(pigs)
+    io.emit('same_address_web', same_address)
     io.emit('pole_update_web', pigs)
   })
 

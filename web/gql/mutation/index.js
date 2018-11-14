@@ -9,5 +9,9 @@ module.exports = {
   },
   createBill: async (_soource, _args, { dataSources}) => {
     return dataSources.farmAPI.createBill(_args)
-  }
+  },
+
+  deleteVaccine: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.deleteVaccine(_args)
+  },
 }

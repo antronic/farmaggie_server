@@ -1,5 +1,6 @@
 module.exports = `
   type Vaccine {
+    _id: String
     name: String
 
     price: Float

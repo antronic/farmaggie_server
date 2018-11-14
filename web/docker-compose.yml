@@ -9,7 +9,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ./api:/var/app
+      - api-drive:/var/app
   gql:
     build: "./gql"
     ports:
@@ -20,7 +20,7 @@ services:
       - db
       - api
     volumes:
-      - ./gql:/var/app
+      - gql-drive:/var/app
   db:
     image: "mongo:4.0.2-xenial"
     ports:
@@ -29,22 +29,25 @@ services:
       - backend
     volumes:
       - mongodb-data:/data/db
-
-  # web:
-  #   image: ""
-
   ws:
     build: "./ws"
+    volumes:
+      - ws-drive:/var/app
     ports:
       - "3003:3003"
     depends_on:
       - api
 
 networks:
-  # frontend:
   backend:
     driver: bridge
 
 volumes:
   mongodb-data:
+    external: true
+  api-drive:
+    external: true
+  gql-drive:
+    external: true
+  ws-drive:
     external: true

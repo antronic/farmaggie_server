@@ -12,6 +12,10 @@ module.exports = `
     created_at: String
   }
 
+  input deleteVaccineInput {
+    _id: String!
+  }
+
   input createVaccineInput {
     name: String!
 

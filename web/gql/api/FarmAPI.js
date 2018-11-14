@@ -24,6 +24,12 @@ module.exports = class FarmAPI extends RESTDataSource {
     )
   }
 
+  async deleteVaccine({ vaccine }) {
+    return this.delete(
+      `vaccine/delete?_id=${vaccine._id}`,
+    )
+  }
+
   async getPig(pig) {
     console.log(pig)
     return this.get(
