@@ -4,13 +4,17 @@
       "env",
       {
         "targets": {
-          "node": "8.12.0"
+          "node": "10"
         }
       }
     ]
   ],
   "plugins": [
-    ["transform-runtime"],
+    ["transform-runtime",
+	{
+	  "polyfill": false,
+	  "regenerator": true,
+	}],
     ["module-resolver",
       {
         "root": [
