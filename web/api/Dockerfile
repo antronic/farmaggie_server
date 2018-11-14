@@ -19,6 +19,6 @@ RUN ["yarn"]
 RUN ["yarn", "global", "add", "nodemon"]
 RUN ["yarn", "global", "add", "babel-cli"]
 
-RUN ["babel ./src -d ./dist -w"]
+RUN ["babel", "./src", "-d", "./dist"]
 
 CMD nodemon ./dist
