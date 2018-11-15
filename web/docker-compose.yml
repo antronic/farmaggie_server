@@ -9,7 +9,8 @@ services:
     depends_on:
       - db
     volumes:
-      - api-drive:/var/app
+      #- api-drive:/var/app
+      - ./api:/var/app
   gql:
     build: "./gql"
     ports:
@@ -20,7 +21,8 @@ services:
       - db
       - api
     volumes:
-      - gql-drive:/var/app
+      #- gql-drive:/var/app
+      - ./gql:/var/app
   db:
     image: "mongo:4.0.2-xenial"
     ports:
@@ -32,7 +34,8 @@ services:
   ws:
     build: "./ws"
     volumes:
-      - ws-drive:/var/app
+      #- ws-drive:/var/app
+      - ./ws:/var/app
     ports:
       - "3003:3003"
     depends_on:

@@ -22,6 +22,7 @@ const api = (() => Router()
   .post('/vaccine/add', vaccine.create)
   .get('/vaccine', vaccine.get)
   .get('/vaccine/one', vaccine.getOne)
+  .get('/vaccine/list', vaccine.getList)
   .delete('/vaccine/delete', vaccine.delete)
 
   .post('/pig/add', pig.create)

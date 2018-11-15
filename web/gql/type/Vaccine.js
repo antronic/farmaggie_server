@@ -1,4 +1,11 @@
 module.exports = `
+  type VaccineInList {
+    _id: String
+    early_expired_date: String
+    later_expired_date: String
+    count: Int
+  }
+
   type Vaccine {
     _id: String
     name: String

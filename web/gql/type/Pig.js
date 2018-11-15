@@ -6,6 +6,8 @@ module.exports = `
     age: Int
     birthdate: String
 
+    vaccine: [String]
+
     created_by: String
     created_at: String
     updated_at: String

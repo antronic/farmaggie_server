@@ -10,6 +10,13 @@ module.exports = class FarmAPI extends RESTDataSource {
     return 'http://api:9000/api/'
   }
 
+  async getVaccineList(vaccine) {
+    return this.get(
+      'vaccine/list',
+      vaccine,
+    )
+  }
+
   async getVaccine(vaccine) {
     return this.get(
       'vaccine',

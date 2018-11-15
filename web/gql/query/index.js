@@ -5,6 +5,10 @@ module.exports = {
     return dataSources.farmAPI.getVaccine(_args)
   },
 
+  vaccines_list: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.getVaccineList(_args)
+  },
+
   pigs: async (_source, { request }, { dataSources }) => {
     const req = {
       request: JSON.stringify(request || {})
