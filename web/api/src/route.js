@@ -8,6 +8,8 @@ import bill from 'controllers/bill'
 
 import user from 'controllers/user'
 
+import notification from 'controllers/notification'
+
 const router = Router()
 
 router.use('/', (req, res, next) => {
@@ -35,6 +37,16 @@ const api = (() => Router()
   .post('/register', user.register)
 )()
 router.use('/api', api)
+
+const ext = (() => Router()
+  .get('/push-noti/not-read', notification.getNotRead)
+  .get('/push-noti/read', notification.getRead)
+  .get('/push-noti', notification.get)
+
+  .post('/push-noti/new', notification.create)
+  .post('/push-noti/read', notification.read)
+)()
+router.use('/ext', ext)
 
 const wk = (() => Router()
   .post('/', webhook.post_index)
