@@ -9,6 +9,7 @@ export default {
 
   post_temp_humidity: (req, res) => {
     console.log(req.body)
+
     axios.get('http://192.168.2.2:3000/info', {
       headers: {
         'Access-Control-Allow-Origin': '*:*'

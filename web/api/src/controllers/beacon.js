@@ -1,4 +1,4 @@
-import Beacon from '../models/Beacon'
+import Beacon from 'models/Beacon'
 
 export default {
   create: (req, res) => {

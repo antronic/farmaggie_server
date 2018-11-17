@@ -3,6 +3,7 @@ import { Router } from 'express'
 import pole from 'controllers/pole'
 import vaccine from 'controllers/vaccine'
 import webhook from 'controllers/webhook'
+import beacon from 'controllers/beacon'
 import pig from 'controllers/pig'
 import bill from 'controllers/bill'
 
@@ -32,6 +33,9 @@ const api = (() => Router()
 
   .post('/bill/add', bill.create)
   .get('/bill', bill.get)
+
+  .post('/beacon/add', beacon.create)
+  .post('/beacon', beacon.get)
 
   .post('/login', user.login)
   .post('/register', user.register)

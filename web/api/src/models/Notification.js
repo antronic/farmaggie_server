@@ -15,13 +15,13 @@ schema.statics.readNotification = function (ids) {
     return Promise.reject('Parameter must be an Array of _id')
   }
 
-  return this.update(
+  return this.updateMany(
     { _id: { $in: ids } },
     { $set: { is_read: true, read_at: Date.now() } }
   )
 }
 
-schema.statics.getNotificationWithCriteria = function (receiver = null, isRead = false, limit = 20) {
+schema.statics.getNotificationWithCriteria = function (receiver = null, isRead = false, limit = 20, sort = -1) {
   return this.find(
     {
       receiver,
@@ -31,13 +31,13 @@ schema.statics.getNotificationWithCriteria = function (receiver = null, isRead =
     {
       limit,
       sort: {
-        created_at: -1,
+        created_at: sort,
       },
     },
   )
 }
 
-schema.statics.getNotification = function (receiver = null, limit = 20) {
+schema.statics.getNotification = function (receiver = null, limit = 20, sort = -1) {
   return this.find(
     {
       receiver,
@@ -46,7 +46,7 @@ schema.statics.getNotification = function (receiver = null, limit = 20) {
     {
       limit,
       sort: {
-        created_at: -1,
+        created_at: sort,
       },
     },
   )

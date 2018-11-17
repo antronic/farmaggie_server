@@ -8,6 +8,8 @@ import morgan from 'morgan'
 import route from './route'
 import './libs/db'
 
+import './services/notification_checker'
+
 const port = process.env.API_PORT
 const app = express()
 
