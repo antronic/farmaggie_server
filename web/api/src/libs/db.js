@@ -13,7 +13,7 @@ const connect = () => {
       clearInterval(intv)
     }
 
-    if (connecting) {
+    if (!connecting) {
       console.err('Attempting to reconnect...')
       connect()
     }
