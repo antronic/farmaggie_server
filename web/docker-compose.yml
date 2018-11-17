@@ -1,28 +1,5 @@
 version: "3"
 services:
-  api:
-    build: "./api"
-    ports:
-      - "9000:9000"
-    networks:
-       - backend
-    depends_on:
-      - db
-    volumes:
-      #- api-drive:/var/app
-      - ./api:/var/app
-  gql:
-    build: "./gql"
-    ports:
-      - "4000:4000"
-    networks:
-      - backend
-    depends_on:
-      - db
-      - api
-    volumes:
-      #- gql-drive:/var/app
-      - ./gql:/var/app
   db:
     image: "mongo:4.0.2-xenial"
     ports:
@@ -40,6 +17,28 @@ services:
       - "3003:3003"
     depends_on:
       - api
+  api:
+    build: "./api"
+    ports:
+      - "9000:9000"
+    networks:
+      - backend
+    depends_on:
+      - db
+    volumes:
+      #- api-drive:/var/app
+      - ./api:/var/app
+  gql:
+    build: "./gql"
+    ports:
+      - "4000:4000"
+    networks:
+      - backend
+    depends_on:
+      - api
+    volumes:
+      #- gql-drive:/var/app
+      - ./gql:/var/app
 
 networks:
   backend:
