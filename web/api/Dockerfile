@@ -21,4 +21,4 @@ RUN ["yarn", "global", "add", "babel-cli"]
 
 RUN ["babel", "./src", "-d", "./dist"]
 
-CMD babel ./src -d ./dist && nodemon ./dist
+CMD nodemon ./dist
