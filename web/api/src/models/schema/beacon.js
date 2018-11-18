@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose'
+import { Schema } from 'mongoose'
 
 export default new Schema({
   name: String,
@@ -20,7 +20,7 @@ export default new Schema({
 
   color: {
     type: String,
-    default: '#aaaaaaa',
+    default: '#aaaaaa',
   },
 
   created_by: {

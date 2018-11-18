@@ -7,6 +7,8 @@ module.exports = `
 
     bills: [Bill]
 
+    beacons(request: searchBeaconInput): [Beacon]
+
     users: [User]
   }
 `

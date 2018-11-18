@@ -65,4 +65,18 @@ module.exports = class FarmAPI extends RESTDataSource {
       bill,
     )
   }
+
+  async getBeacon(beacon) {
+    return this.get(
+      'beacon',
+      beacon,
+    )
+  }
+
+  async createBeacon(beacon) {
+    return this.post(
+      'beacon/add',
+      beacon,
+    )
+  }
 }

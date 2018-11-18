@@ -7,6 +7,9 @@ module.exports = {
   createPig: async (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.createPig(_args)
   },
+  createBeacon: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.createBeacon(_args)
+  },
   createBill: async (_soource, _args, { dataSources}) => {
     return dataSources.farmAPI.createBill(_args)
   },

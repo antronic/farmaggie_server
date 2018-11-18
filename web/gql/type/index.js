@@ -7,6 +7,7 @@ const Vaccine = require('./Vaccine')
 const Pig = require('./Pig')
 const User = require('./User')
 const Bill = require('./Bill')
+const Beacon = require('./Beacon')
 
 module.exports = [
   Query,
@@ -18,4 +19,5 @@ module.exports = [
   Pig,
   User,
   Bill,
+  Beacon,
 ]

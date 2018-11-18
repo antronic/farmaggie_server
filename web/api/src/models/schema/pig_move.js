@@ -1,16 +1,29 @@
 import mongoose, { Schema } from 'mongoose'
 
 export default new Schema({
-  name: String,
-  mac: {
-    type: String,
-    default: '0x00000'
+  beacon_id: {
+    type: mongoose.Types.ObjectId,
+    default: null,
   },
-  uid: String,
+
+  pig_id: {
+    type: mongoose.Types.ObjectId,
+    default: null,
+  },
+
+  zone: {
+    type: String,
+    default: null,
+  },
+
+  created_at: {
+    type: Date,
+    default: Date.now(),
+  },
 
   timestamp: {
     type: String,
-    default: 'anonymous',
+    default: new Date().getTime(),
   },
 
 })

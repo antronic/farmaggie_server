@@ -8,6 +8,7 @@ module.exports = `
     createVaccine(vaccine: createVaccineInput): Vaccine
     createPig(pig: createPigInput): Pig
     createBill(bill: createBillInput): Bill
+    createBeacon(beacon: createBeaconInput): Beacon
 
     deleteVaccine(vaccine: deleteVaccineInput): deleteResponse
   }

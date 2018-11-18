@@ -17,6 +17,15 @@ services:
       - "3003:3003"
     depends_on:
       - api
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    volumes:
+      - certs:/etc/letsencrypt
+      - certs-data:/data/letsencrypt
+    ports:
+      - 80:80
+      - 443:443
   api:
     build: "./api"
     ports:
@@ -48,5 +57,12 @@ volumes:
   mongodb-data:
     external: true
   api-drive:
+    external: true
   gql-drive:
+    external: true
   ws-drive:
+    external: true
+  certs:
+    external: true
+  certs-data:
+    external: true

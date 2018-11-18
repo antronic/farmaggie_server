@@ -35,7 +35,7 @@ const api = (() => Router()
   .get('/bill', bill.get)
 
   .post('/beacon/add', beacon.create)
-  .post('/beacon', beacon.get)
+  .get('/beacon', beacon.get)
 
   .post('/login', user.login)
   .post('/register', user.register)

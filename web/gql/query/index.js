@@ -15,6 +15,14 @@ module.exports = {
     return dataSources.farmAPI.getPig(req)
   },
 
+  beacons: async (_source, { request }, { dataSources }) => {
+    const req = {
+      request: JSON.stringify(request || {})
+    }
+
+    return dataSources.farmAPI.getBeacon(req)
+  },
+
   bills: async (_source, { request }, { dataSources }) => {
     const req = {
       request: JSON.stringify(request || {})
