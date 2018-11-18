@@ -23,6 +23,8 @@ services:
     volumes:
       - certs:/etc/letsencrypt
       - certs-data:/data/letsencrypt
+    networks:
+      - backend
     ports:
       - 80:80
       - 443:443
