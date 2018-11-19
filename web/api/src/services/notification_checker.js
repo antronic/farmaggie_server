@@ -2,7 +2,7 @@ import Notification from 'models/Notification'
 import { CronJob } from 'cron'
 import { sendMessage } from './line'
 
-const cronString = '0 10,20,30,50,0 * * * *'
+const cronString = '10 10,20,30,36,50,0 * * * *'
 
 const ids = []
 

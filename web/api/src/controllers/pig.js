@@ -1,4 +1,5 @@
 import Pig from '../models/Pig'
+import Movement from '../models/Movement'
 
 export default {
   create: (req, res) => {
@@ -18,4 +19,14 @@ export default {
     return Pig.find(request, query.project)
       .then(doc => res.json(doc))
   },
+
+  stamp_move: (req, res) => {
+    const movement = req.body.movement
+
+    return Movement.stamp(
+      movement.beacon_id,
+      movement.pig_mac,
+      movement.zone,
+    ).then(doc => res.json(doc))
+  }
 }

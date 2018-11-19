@@ -52,6 +52,12 @@ module.exports = class FarmAPI extends RESTDataSource {
     )
   }
 
+  async deletePig({ Pig }) {
+    return this.delete(
+      `Pig/delete?_id=${Pig._id}`,
+    )
+  }
+
   async getBill(bill) {
     return this.get(
       'bill',
@@ -77,6 +83,13 @@ module.exports = class FarmAPI extends RESTDataSource {
     return this.post(
       'beacon/add',
       beacon,
+    )
+  }
+
+  async stampMovement(movement) {
+    return this.post(
+      'movement/stamp',
+      movement,
     )
   }
 }

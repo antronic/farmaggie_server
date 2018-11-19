@@ -65,6 +65,7 @@ io.on('connection', (socket) => {
         Object.assign(same_address, {}, {
           [data.address]: {
             ...same_address[data.address],
+            // [data.mac]: '',
             [data.mac]: getRandomColor(),
           }
         })
@@ -83,12 +84,12 @@ io.on('connection', (socket) => {
       const old_data = pigs[data.mac]
 
       Object.assign(pigs, {}, {
-        [data.mac]: Object.assign({}, old_data, { [data.device]: data.rssi }),
+        [data.mac]: Object.assign({}, old_data, { [data.device]: parseInt(data.rssi) }),
       })
     } else {
       Object.assign(pigs, {}, {
         [data.mac]: {
-          [data.device]: data.rssi
+          [data.device]: parseInt(data.rssi),
         }
       })
     }

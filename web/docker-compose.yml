@@ -17,6 +17,8 @@ services:
       - "3003:3003"
     depends_on:
       - api
+    networks:
+      - backend
   nginx:
     build: ./nginx
     container_name: nginx

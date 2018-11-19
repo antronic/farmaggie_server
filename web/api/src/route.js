@@ -37,6 +37,8 @@ const api = (() => Router()
   .post('/beacon/add', beacon.create)
   .get('/beacon', beacon.get)
 
+  .post('/movement/stamp', pig.stamp_move)
+
   .post('/login', user.login)
   .post('/register', user.register)
 )()
@@ -54,8 +56,13 @@ router.use('/ext', ext)
 
 const wk = (() => Router()
   .post('/', webhook.post_index)
+  .post('/ggassistant', webhook.post_index)
   .post('/temp_humidity', webhook.post_temp_humidity)
 )()
 router.use('/whook', wk)
+
+router.all('/', (req, res) => {
+  res.redirect(301, 'https://angry-montalcini-2721e6.netlify.com.')
+})
 
 export default router

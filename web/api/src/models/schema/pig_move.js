@@ -6,8 +6,13 @@ export default new Schema({
     default: null,
   },
 
-  pig_id: {
-    type: mongoose.Types.ObjectId,
+  // pig_id: {
+  //   type: mongoose.Types.ObjectId,
+  //   default: null,
+  // },
+
+  pig_mac: {
+    type: String,
     default: null,
   },
 
@@ -22,7 +27,7 @@ export default new Schema({
   },
 
   timestamp: {
-    type: String,
+    type: Number,
     default: new Date().getTime(),
   },
 

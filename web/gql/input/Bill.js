@@ -8,4 +8,8 @@ module.exports = `
     amount: Float!
     unit: String!
   }
+
+  input deleteBillInput {
+    _id: String!
+  }
 `
