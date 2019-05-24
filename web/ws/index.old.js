@@ -27,10 +27,11 @@ app.get('/info', (req, res) => {
   })
 })
 
-app.get('/poles', (req, res) => {})
+app.get('/poles', (req, res) => {
+})
 
 io.on('connection', (socket) => {
-  console.log('WS User connected')
+  console.log('a user connected')
 
   // Restore data
   io.emit('same_address_web', same_address)
@@ -44,13 +45,64 @@ io.on('connection', (socket) => {
   })
 
   // when pole send new values
-  socket.on('pole_update', (bcs) => {
-    pigs = bcs
-    io.emit('pole_update_web', pigs)
-  })
+  socket.on('pole_update', (msg) => {
+    // send new values from pole
+    // to subscriber
+    let data = msg
 
-  socket.on('dummy/send_pole', (msg) => {
-    io.emit('dummy/pole_update', JSON.stringify(msg))
+    function getRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    // If pig already in vars
+    // if (data.address === '74278BDAB64445208F0C720EAF059935') {
+    if ((data.address).replace(/DISC|OK|\+/g, '') === 'B9407F30F5F8466EAFF925556B57FE6D') {
+      if (same_address[data.address] === undefined) {
+        Object.assign(same_address, {}, {
+          [data.address]: {}
+        })
+      }
+
+      if (!Object.hasOwnProperty.call(same_address[data.address], data.mac)) {
+        Object.assign(same_address, {}, {
+          [data.address]: {
+            ...same_address[data.address],
+            // [data.mac]: '',
+            [data.mac]: getRandomColor(),
+          }
+        })
+      } else {
+        Object.assign(same_address, {}, {
+          [data.address]: {
+            ...same_address[data.address],
+            [data.mac]: same_address[data.address][data.mac],
+          }
+        })
+      }
+    }
+
+    // If pig already in vars
+    if (Object.hasOwnProperty.call(pigs, data.mac) > 0) {
+      const old_data = pigs[data.mac]
+
+      Object.assign(pigs, {}, {
+        [data.mac]: Object.assign({}, old_data, { [data.device]: parseInt(data.rssi) }),
+      })
+    } else {
+      Object.assign(pigs, {}, {
+        [data.mac]: {
+          [data.device]: parseInt(data.rssi),
+        }
+      })
+    }
+
+    io.emit('same_address_web', same_address)
+    io.emit('pole_update_web', pigs)
   })
 
   var emit_msg_time = 0

@@ -9,7 +9,7 @@ module.exports = {
 
   pigs: async (_source, { request }, { dataSources }) => {
     const req = {
-      request: JSON.stringify(request || {})
+      request: JSON.stringify({...request, active: true} || {active: true})
     }
 
     return dataSources.farmAPI.getPig(req)

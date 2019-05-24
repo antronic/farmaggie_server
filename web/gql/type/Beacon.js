@@ -1,6 +1,8 @@
 module.exports = `
   type Beacon {
     _id: String
+
+    pig_id: String
     name: String
 
     mac: String

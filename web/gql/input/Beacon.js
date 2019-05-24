@@ -13,6 +13,10 @@ module.exports = `
     color: String
   }
 
+  input deleteBeaconInput {
+    _id: String!
+  }
+
   input searchBeaconInput {
     _id: String
     name: String

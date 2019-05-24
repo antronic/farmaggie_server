@@ -14,5 +14,6 @@ module.exports = `
 
     deleteVaccine(vaccine: deleteVaccineInput): deleteResponse
     deletePig(pig: deletePigInput): deleteResponse
+    deleteBeacon(beacon: deleteBeaconInput): deleteResponse
   }
 `

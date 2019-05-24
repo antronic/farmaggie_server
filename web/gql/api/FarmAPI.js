@@ -65,7 +65,7 @@ module.exports = class FarmAPI extends RESTDataSource {
     )
   }
 
-  async createBill(bill) {
+async createBill(bill) {
     return this.post(
       'bill/add',
       bill,
@@ -83,6 +83,12 @@ module.exports = class FarmAPI extends RESTDataSource {
     return this.post(
       'beacon/add',
       beacon,
+    )
+  }
+
+  async deleteBeacon({ beacon }) {
+    return this.delete(
+      `beacon/delete?_id=${beacon._id}`,
     )
   }
 

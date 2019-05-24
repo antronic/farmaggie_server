@@ -36,6 +36,7 @@ const api = (() => Router()
 
   .post('/beacon/add', beacon.create)
   .get('/beacon', beacon.get)
+  .delete('/beacon/delete', beacon.delete)
 
   .post('/movement/stamp', pig.stamp_move)
 

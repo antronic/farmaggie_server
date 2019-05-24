@@ -25,4 +25,8 @@ module.exports = {
   deletePig: async (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.deletePig(_args)
   },
+
+  deleteBeacon: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.deleteBeacon(_args)
+  },
 }

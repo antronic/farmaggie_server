@@ -20,6 +20,11 @@ export default {
       .then(doc => res.json(doc))
   },
 
+  delete: (req, res) => {
+    return Pig.deleteOne({ _id: req.query._id })
+      .then(doc => res.json(doc))
+  },
+
   stamp_move: (req, res) => {
     const movement = req.body.movement
 
