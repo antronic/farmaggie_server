@@ -14,6 +14,6 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN ["rm", "-rf", "node_modules"]
 RUN ["npm", "install"]
-RUN ["npm -g", "install", "nodemon"]
+RUN ["npm", "install -g", "nodemon"]
 
 CMD nodemon ./
