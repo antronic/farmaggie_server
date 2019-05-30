@@ -9,7 +9,7 @@ RUN apk add --update \
 
 RUN ["rm", "-rf", "node_modules"]
 RUN ["npm", "install"]
-RUN ["npm", "install -g", "nodemon"]
-RUN ["npm", "install -g", "babel-cli"]
+RUN ["npm", "install", "-g", "nodemon"]
+RUN ["npm", "install", "-g", "babel-cli"]
 
 CMD nodemon ./

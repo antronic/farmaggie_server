@@ -16,8 +16,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN ["rm", "-rf", "node_modules"]
 
 RUN ["npm", "install"]
-RUN ["npm", "install -g", "nodemon"]
-RUN ["npm", "install -g", "babel-cli"]
+RUN ["npm", "install", "-g", "nodemon"]
+RUN ["npm", "install", "-g", "babel-cli"]
 
 RUN ["babel", "./src", "-d", "./dist"]
 
