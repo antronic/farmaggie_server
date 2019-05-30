@@ -8,8 +8,8 @@ RUN apk add --update \
   && rm -rf /var/cache/apk/*
 
 RUN ["rm", "-rf", "node_modules"]
-RUN ["yarn"]
-RUN ["yarn", "global", "add", "nodemon"]
-RUN ["yarn", "global", "add", "babel-cli"]
+RUN ["npm", "install"]
+RUN ["npm -g", "install", "nodemon"]
+RUN ["npm -g", "install", "babel-cli"]
 
 CMD nodemon ./
