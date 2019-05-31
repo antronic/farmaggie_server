@@ -29,6 +29,14 @@ app.get('/info', (req, res) => {
 
 app.get('/poles', (req, res) => {})
 
+var emit_msg_time = 0
+function checkDangerTemp(temp, hud) {
+  if (parseInt(temp, 10) > 27 && parseInt(hud, 10) > 50) {
+    return true
+  }
+  return false
+}
+
 io.on('connection', (socket) => {
   console.log('WS User connected')
 
@@ -53,14 +61,10 @@ io.on('connection', (socket) => {
     io.emit('dummy/pole_update', JSON.stringify(msg))
   })
 
-  var emit_msg_time = 0
-
-  function checkDangerTemp(temp, hud) {
-    if (parseInt(temp, 10) > 27 && parseInt(hud, 10) > 50) {
-      return true
-    }
-    return false
-  }
+  socket.on('request_pigs', (msg) => {
+    // send back to only requester
+    socket.emit(pigs)
+  })
 
   socket.on('dht_update', (msg) => {
     const temp = msg.temp

@@ -11,8 +11,8 @@ services:
   ws:
     build: "./ws"
     volumes:
-      - ws-drive:/var/app
-      # - ./ws:/var/app
+      # - ws-drive:/var/app
+      - ./ws:/var/app
     ports:
       - "3003:3003"
     depends_on:
@@ -39,8 +39,8 @@ services:
     depends_on:
       - db
     volumes:
-      - api-drive:/var/app
-      # - ./api:/var/app
+      # - api-drive:/var/app
+      - ./api:/var/app
   gql:
     build: "./gql"
     ports:
@@ -50,8 +50,8 @@ services:
     depends_on:
       - api
     volumes:
-      - gql-drive:/var/app
-      # - ./gql:/var/app
+      # - gql-drive:/var/app
+      - ./gql:/var/app
 
 networks:
   backend:
