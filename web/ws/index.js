@@ -63,7 +63,7 @@ io.on('connection', (socket) => {
 
   socket.on('request_pigs', (msg) => {
     // send back to only requester
-    socket.emit(pigs)
+    socket.emit('response_pigs', pigs)
   })
 
   socket.on('dht_update', (msg) => {
