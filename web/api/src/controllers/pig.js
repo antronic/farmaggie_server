@@ -3,7 +3,9 @@ import Movement from '../models/Movement'
 
 export default {
   create: (req, res) => {
-    return Pig.createNewPig(req.body.pig)
+    const pig = req.body.pig
+
+    return Pig.createNewPig(pig)
       .then(doc => res.json(doc))
   },
 

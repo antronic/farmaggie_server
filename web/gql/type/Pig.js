@@ -5,6 +5,7 @@ module.exports = `
     name: String!
     age: Int
     birthdate: String
+    active: Boolean
 
     vaccine: [String]
 
