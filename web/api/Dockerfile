@@ -1,4 +1,4 @@
-FROM node:8.12.0-alpine
+FROM node:12.11.1-alpine
 # FROM node:10-alpine
 MAINTAINER Jirachai Chansivanon (antronic.inc@gmail.com)
 
@@ -15,10 +15,10 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN ["rm", "-rf", "node_modules"]
 
-RUN ["npm", "install"]
-RUN ["npm", "install", "-g", "nodemon"]
-RUN ["npm", "install", "-g", "babel-cli"]
+RUN ["yarn", "install"]
+RUN ["yarn", "global", "add", "nodemon"]
+# RUN ["yarn", "global", "-g", "@babel/cli"]
 
-RUN ["babel", "./src", "-d", "./dist"]
+RUN ["yarn", "babel", "./src", "-d", "./dist"]
 
 CMD nodemon ./dist
