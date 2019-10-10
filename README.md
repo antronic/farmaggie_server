@@ -80,7 +80,33 @@ then you can work with them with...
 $ docker-compose up -f docker-compose-dev.yml
 ```
 
-Done!
+Now, our system is working.
+
+
+
+but in term of development when you edit and save your files, they have not complied / transplied yet.
+
+
+
+So, we need to run compiler / transplier for watch those files and then complied/transplied them.
+
+By using this command...
+
+```bash
+$ docker-compose exec web_api yarn dev
+```
+
+**NOTE: the name of container may different on each machine, you need to make sure their name by checking from `docker ps`**
+
+or (if you have installed **yarn** on your machine)
+
+```bash
+$ yarn dev
+```
+
+
+
+Done! and enjoy hacking!
 
 
 
