@@ -32,4 +32,8 @@ module.exports = {
   },
 
   users: () => {},
+
+  farrowingRooms: (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.getFarrowingRoom(_args)
+  },
 }

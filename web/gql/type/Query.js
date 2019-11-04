@@ -10,5 +10,6 @@ module.exports = `
     beacons(request: searchBeaconInput): [Beacon]
 
     users: [User]
+    farrowingRooms(request: searchFarrowingRoomInput): [FarrowingRoom]
   }
 `

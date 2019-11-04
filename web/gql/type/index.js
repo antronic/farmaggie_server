@@ -9,6 +9,7 @@ const User = require('./User')
 const Bill = require('./Bill')
 const Beacon = require('./Beacon')
 const Movement = require('./Movement')
+const FarrowingRoom = require('./FarrowingRoom')
 
 module.exports = [
   Query,
@@ -22,4 +23,5 @@ module.exports = [
   Bill,
   Beacon,
   Movement,
+  FarrowingRoom,
 ]

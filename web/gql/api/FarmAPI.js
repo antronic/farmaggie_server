@@ -98,4 +98,18 @@ async createBill(bill) {
       movement,
     )
   }
+
+  async createFarrowingRoom(farrowingRoom) {
+    return this.post(
+      'farrowing-room',
+      farrowingRoom
+    )
+  }
+
+  async getFarrowingRoom(farrowingRoom) {
+    return this.get(
+      'farrowing-room',
+      farrowingRoom
+    )
+  }
 }
