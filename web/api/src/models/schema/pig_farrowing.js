@@ -10,10 +10,10 @@ const schema = new Schema({
     ref: 'FarrowingInformation'
   }],
   vaccine_injection: {
-      fmd: Date,
-      csf: Date,
-      pseudo: Date
-    },
+    fmd: Date,
+    csf: Date,
+    pseudo: Date
+  },
   coop_number: Number,
   coop_type: String,
 }, {

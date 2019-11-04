@@ -33,7 +33,7 @@ module.exports = {
 
   users: () => {},
 
-  farrowingRooms: (_source, _args, { dataSources }) => {
+  pigFarrowings: (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.getFarrowingRoom(_args)
   },
 }

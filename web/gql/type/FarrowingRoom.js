@@ -16,6 +16,7 @@ module.exports = `
   }
 
   type FarrowingInformation {
+    _id: String!
     breeding: Breeding
     farrowing: Farrowing
     piglet_vaccine_injection: PigletVaccineInjection
@@ -27,7 +28,7 @@ module.exports = `
     pseudo: String
   }
 
-  type FarrowingRoom {
+  type PigFarrowing {
     _id: String!
     pig: Pig
     farrowing_information: [FarrowingInformation]
