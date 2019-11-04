@@ -99,17 +99,25 @@ async createBill(bill) {
     )
   }
 
-  async createFarrowingRoom(farrowingRoom) {
-    return this.post(
+  async createFarrowingRoom(breeder) {
+    const result = await this.post(
       'farrowing-room',
-      farrowingRoom
+      breeder
+    )
+    return result
+  }
+
+  async getFarrowingRoom(breeder) {
+    return this.get(
+      'farrowing-room',
+      breeder
     )
   }
 
-  async getFarrowingRoom(farrowingRoom) {
-    return this.get(
+  async updateFarrowingRoom(breeder) {
+    return this.patch(
       'farrowing-room',
-      farrowingRoom
+      breeder
     )
   }
 }

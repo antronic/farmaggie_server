@@ -10,6 +10,6 @@ module.exports = `
     beacons(request: searchBeaconInput): [Beacon]
 
     users: [User]
-    pigFarrowings(request: searchFarrowingRoomInput): [PigFarrowing]
+    pigFarrowings(request: searchBreederInput): [Breeder]
   }
 `

@@ -29,4 +29,12 @@ module.exports = {
   deleteBeacon: async (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.deleteBeacon(_args)
   },
+
+  createFarrowingRoom: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.createFarrowingRoom(_args)
+  },
+
+  updateFarrowingRoom: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.updateFarrowingRoom(_args)
+  },
 }

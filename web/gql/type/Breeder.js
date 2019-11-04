@@ -28,7 +28,7 @@ module.exports = `
     pseudo: String
   }
 
-  type PigFarrowing {
+  type Breeder {
     _id: String!
     pig: Pig
     farrowing_information: [FarrowingInformation]

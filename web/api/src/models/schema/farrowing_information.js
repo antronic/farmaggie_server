@@ -17,9 +17,9 @@ export default new Schema({
     pcv: Date,
     myco: Date,
   },
-  pig_farrowing: {
+  breeder: {
     type: Schema.Types.ObjectId,
-    ref: 'PigFarrowing'
+    ref: 'Breeder',
   }
 }, {
   timestamps: {

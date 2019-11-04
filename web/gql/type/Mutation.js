@@ -15,5 +15,8 @@ module.exports = `
     deleteVaccine(vaccine: deleteVaccineInput): deleteResponse
     deletePig(pig: deletePigInput): deleteResponse
     deleteBeacon(beacon: deleteBeaconInput): deleteResponse
+
+    createFarrowingRoom(breeder: breederInput): Breeder
+    updateFarrowingRoom(breeder: updateBreederInput): Breeder
   }
 `

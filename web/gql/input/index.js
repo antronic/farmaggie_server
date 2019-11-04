@@ -3,7 +3,7 @@ const Bill = require('./Bill')
 const Beacon = require('./Beacon')
 const Vaccine = require('./Vaccine')
 const Movement = require('./Movement')
-const FarrowingRoom = require('./FarrowingRoom')
+const Breeder = require('./Breeder')
 
 module.exports = [
   Pig,
@@ -11,5 +11,5 @@ module.exports = [
   Vaccine,
   Beacon,
   Movement,
-  FarrowingRoom,
+  Breeder,
 ]

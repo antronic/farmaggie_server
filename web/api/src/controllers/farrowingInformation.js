@@ -1,12 +1,12 @@
 import FarrowingInformation from '../models/FarrowingInformation'
-import PigFarrowing from '../models/PigFarrowing'
+import Breeder from '../models/Breeder'
 
 export default {
   create: (req, res) => {
     const farrowingInformationRequest = mapSchema(req.body.farrowing_information)
     FarrowingInformation.create(farrowingInformationRequest)
       .then(doc => {
-        return PigFarrowing.findByIdAndUpdate(doc.pig_farrowing, { '$push': { 'farrowing_information': doc._id } })
+        return Breeder.findByIdAndUpdate(doc.breeder, { '$push': { 'farrowing_information': doc._id } })
           .then(() => {
             return doc
           })
@@ -40,6 +40,6 @@ const mapSchema = (obj) => {
     breeding,
     farrowing,
     piglet_vaccine_injection,
-    pig_farrowing: obj.pig_farrowing
+    breeder: obj.breeder
   }
 }

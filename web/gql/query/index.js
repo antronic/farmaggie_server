@@ -33,7 +33,10 @@ module.exports = {
 
   users: () => {},
 
-  pigFarrowings: (_source, _args, { dataSources }) => {
-    return dataSources.farmAPI.getFarrowingRoom(_args)
+  pigFarrowings: (_source, { request }, { dataSources }) => {
+    const req = {
+      request: JSON.stringify({...request} || {})
+    }
+    return dataSources.farmAPI.getFarrowingRoom(req)
   },
 }
