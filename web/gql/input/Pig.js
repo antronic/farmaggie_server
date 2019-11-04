@@ -14,5 +14,10 @@ module.exports = `
     name: String
     age: Int
     birthdate: String
+
+    ear_no: String
+    species: String
+    pork_breast: String
+    entered_date: String
   }
 `
