@@ -6,6 +6,8 @@ import webhook from 'controllers/webhook'
 import beacon from 'controllers/beacon'
 import pig from 'controllers/pig'
 import bill from 'controllers/bill'
+import farrowingRoom from 'controllers/farrowingRoom'
+import farrowingInformation from 'controllers/farrowingInformation'
 
 import user from 'controllers/user'
 
@@ -30,6 +32,11 @@ const api = (() => Router()
 
   .post('/pig/add', pig.create)
   .get('/pig', pig.get)
+
+  .post('/farrowing-room', farrowingRoom.createRoom)
+  .get('/farrowing-room', farrowingRoom.getAll)
+
+  .post('/farrowing-information', farrowingInformation.create)
 
   .post('/bill/add', bill.create)
   .get('/bill', bill.get)
