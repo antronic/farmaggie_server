@@ -8,6 +8,7 @@ import pig from 'controllers/pig'
 import bill from 'controllers/bill'
 import breeder from 'controllers/breeder'
 import farrowingInformation from 'controllers/farrowingInformation'
+import pigletpen from 'controllers/pigletpen'
 
 import user from 'controllers/user'
 
@@ -42,6 +43,10 @@ const api = (() => Router()
   .patch('/breeding-pigsty', breeder('breeding_pigsty').update)
 
   .post('/farrowing-information', farrowingInformation.create)
+
+  .post('/piglet-pen', pigletpen.create)
+  .get('/piglet-pen', pigletpen.get)
+  .patch('/piglet-pen', pigletpen.update)
 
   .post('/bill/add', bill.create)
   .get('/bill', bill.get)
