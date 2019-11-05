@@ -9,6 +9,7 @@ import bill from 'controllers/bill'
 import breeder from 'controllers/breeder'
 import farrowingInformation from 'controllers/farrowingInformation'
 import pigletpen from 'controllers/pigletpen'
+import sale from 'controllers/sale'
 
 import user from 'controllers/user'
 
@@ -47,6 +48,10 @@ const api = (() => Router()
   .post('/piglet-pen', pigletpen.create)
   .get('/piglet-pen', pigletpen.get)
   .patch('/piglet-pen', pigletpen.update)
+
+  .post('/sale', sale.create)
+  .get('/sale', sale.get)
+  .patch('/sale', sale.update)
 
   .post('/bill/add', bill.create)
   .get('/bill', bill.get)
