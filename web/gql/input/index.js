@@ -5,6 +5,7 @@ const Vaccine = require('./Vaccine')
 const Movement = require('./Movement')
 const Breeder = require('./Breeder')
 const PigletPen = require('./PigletPen')
+const Sale = require('./Sale')
 
 module.exports = [
   Pig,
@@ -14,4 +15,5 @@ module.exports = [
   Movement,
   Breeder,
   PigletPen,
+  Sale,
 ]

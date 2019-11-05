@@ -53,4 +53,11 @@ module.exports = {
     }
     return dataSources.farmAPI.getPigletpen(req)
   },
+
+  sales: async (_source, { request }, { dataSources }) => {
+    const req = {
+      request: JSON.stringify({...request} || {})
+    }
+    return dataSources.farmAPI.getSales(req)
+  },
 }

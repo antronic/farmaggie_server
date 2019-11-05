@@ -53,4 +53,12 @@ module.exports = {
   updatePigletPen: async (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.updatePigletpen(_args)
   },
+
+  createSale: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.createSale(_args)
+  },
+
+  updateSale: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.updateSale(_args)
+  },
 }

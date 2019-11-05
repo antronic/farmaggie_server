@@ -10,9 +10,11 @@ module.exports = `
     beacons(request: searchBeaconInput): [Beacon]
 
     users: [User]
+
     pigFarrowings(request: searchBreederInput): [Breeder]
     breederPigsty(request: searchBreederInput): [Breeder]
-
     pigletPens(request: searchPigletPenInput): [PigletPen]
+
+    sales(request: searchSaleInput): [Sale]
   }
 `

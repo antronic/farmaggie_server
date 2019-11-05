@@ -24,5 +24,8 @@ module.exports = `
 
     createPigletPen(pigletpen: pigletPenInput): PigletPen
     updatePigletPen(pigletpen: updatePigletPenInput): PigletPen
+
+    createSale(sale: saleInput): Sale
+    updateSale(sale: updateSaleInput): Sale
   }
 `

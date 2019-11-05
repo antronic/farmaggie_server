@@ -164,4 +164,26 @@ async createBill(bill) {
       pigletpen
     )
   }
+
+  async createSale(sale) {
+    const result = await this.post(
+      'sale',
+      sale
+    )
+    return result
+  }
+
+  async getSales(sale) {
+    return this.get(
+      'sale',
+      sale
+    )
+  }
+
+  async updateSale(sale) {
+    return this.patch(
+      'sale',
+      sale
+    )
+  }
 }
