@@ -11,5 +11,6 @@ module.exports = `
 
     users: [User]
     pigFarrowings(request: searchBreederInput): [Breeder]
+    breederPigsty(request: searchBreederInput): [Breeder]
   }
 `

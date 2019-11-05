@@ -18,5 +18,8 @@ module.exports = `
 
     createFarrowingRoom(breeder: breederInput): Breeder
     updateFarrowingRoom(breeder: updateBreederInput): Breeder
+
+    createBreederPigsty(breeder: breederInput): Breeder
+    updateBreederPigsty(breeder: updateBreederInput): Breeder
   }
 `

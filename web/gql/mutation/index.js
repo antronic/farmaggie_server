@@ -37,4 +37,13 @@ module.exports = {
   updateFarrowingRoom: async (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.updateFarrowingRoom(_args)
   },
+
+  createBreederPigsty: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.createBreederPigsty(_args)
+  },
+
+  updateBreederPigsty: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.updateBreederPigsty(_args)
+  },
+
 }

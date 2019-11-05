@@ -120,4 +120,26 @@ async createBill(bill) {
       breeder
     )
   }
+
+  async createBreederPigsty(breeder) {
+    const result = await this.post(
+      'breeding-pigsty',
+      breeder
+    )
+    return result
+  }
+
+  async getBreederPigsty(breeder) {
+    return this.get(
+      'breeding-pigsty',
+      breeder
+    )
+  }
+
+  async updateBreederPigsty(breeder) {
+    return this.patch(
+      'breeding-pigsty',
+      breeder
+    )
+  }
 }
