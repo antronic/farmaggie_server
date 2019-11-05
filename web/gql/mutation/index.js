@@ -46,4 +46,11 @@ module.exports = {
     return dataSources.farmAPI.updateBreederPigsty(_args)
   },
 
+  createPigletPen: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.createPigletpen(_args)
+  },
+
+  updatePigletPen: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.updatePigletpen(_args)
+  },
 }

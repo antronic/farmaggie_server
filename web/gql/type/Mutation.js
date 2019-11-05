@@ -21,5 +21,8 @@ module.exports = `
 
     createBreederPigsty(breeder: breederInput): Breeder
     updateBreederPigsty(breeder: updateBreederInput): Breeder
+
+    createPigletPen(pigletpen: pigletPenInput): PigletPen
+    updatePigletPen(pigletpen: updatePigletPenInput): PigletPen
   }
 `
