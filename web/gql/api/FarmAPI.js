@@ -142,4 +142,26 @@ async createBill(bill) {
       breeder
     )
   }
+
+  async createPigletpen(pigletpen) {
+    const result = await this.post(
+      'piglet-pen',
+      pigletpen
+    )
+    return result
+  }
+
+  async getPigletpen(pigletpen) {
+    return this.get(
+      'piglet-pen',
+      pigletpen
+    )
+  }
+
+  async updatePigletpen(pigletpen) {
+    return this.patch(
+      'piglet-pen',
+      pigletpen
+    )
+  }
 }

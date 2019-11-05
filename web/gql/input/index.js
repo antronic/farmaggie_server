@@ -4,6 +4,7 @@ const Beacon = require('./Beacon')
 const Vaccine = require('./Vaccine')
 const Movement = require('./Movement')
 const Breeder = require('./Breeder')
+const PigletPen = require('./PigletPen')
 
 module.exports = [
   Pig,
@@ -12,4 +13,5 @@ module.exports = [
   Beacon,
   Movement,
   Breeder,
+  PigletPen,
 ]
