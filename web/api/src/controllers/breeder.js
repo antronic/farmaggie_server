@@ -40,7 +40,6 @@ export default (coop_type) => {
     },
     getAll: (req, res) => {
       const query = req.query
-      console.log(query)
       const prepareRequest = JSON.parse(query.request || '{}')
       const request = Object.assign(prepareRequest, { coop_type })
   

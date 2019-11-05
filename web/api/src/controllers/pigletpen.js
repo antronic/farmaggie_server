@@ -8,7 +8,7 @@ export default {
         res.json(doc)
       })
       .catch(err => {
-        res.status(400).json({ status: err.message })
+        res.status(400).json({ message: err.message })
       })
   },
   get: (req, res) => {
@@ -26,7 +26,7 @@ export default {
         res.json(doc)
       })
       .catch(err => {
-        res.status(400).json({ status: err.message })
+        res.status(400).json({ message: err.message })
       })
   },
 }
