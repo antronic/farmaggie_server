@@ -7,6 +7,7 @@ module.exports = `
 
   input saleInput {
     customer_name: String
+    sold_date: String
     pig_amount: Int
     price_per_kilogram: Float
     total_weight: Float
@@ -17,6 +18,7 @@ module.exports = `
   input updateSaleInput {
     _id: String!
     customer_name: String
+    sold_date: String
     pig_amount: Int
     price_per_kilogram: Float
     total_weight: Float
