@@ -61,4 +61,12 @@ module.exports = {
   updateSale: async (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.updateSale(_args)
   },
+
+  createFarrowingInformation: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.createFarrowingInformation(_args)
+  },
+
+  createPigletPenVaccineInjection: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.createPigletpenVaccineInjection(_args)
+  },
 }

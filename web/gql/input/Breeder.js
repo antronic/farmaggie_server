@@ -25,7 +25,21 @@ module.exports = `
     piglet_vaccine_injection: pigletVaccineInjectionInput!
   }
 
+  input createFarrowingInformationInput {
+    breeder: String!
+    breeding: breedingInput!
+    farrowing: farrowingInput!
+    piglet_vaccine_injection: pigletVaccineInjectionInput!
+  }
+
   input breederVaccineInjectionInput {
+    fmd: String
+    csf: String
+    pseudo: String
+  }
+
+  input createPigletVaccineInjectionInput {
+    piglet_pen: String!
     fmd: String
     csf: String
     pseudo: String

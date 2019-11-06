@@ -20,6 +20,8 @@ module.exports = `
     breeding: Breeding
     farrowing: Farrowing
     piglet_vaccine_injection: PigletVaccineInjection
+    created_at: String
+    updated_at: String
   }
 
   type BreederVaccineInjection {

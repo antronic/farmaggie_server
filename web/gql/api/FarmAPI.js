@@ -143,6 +143,13 @@ async createBill(bill) {
     )
   }
 
+  async createFarrowingInformation(farrowing_information) {
+    return this.post(
+      'farrowing-information',
+      farrowing_information
+    )
+  }
+
   async createPigletpen(pigletpen) {
     const result = await this.post(
       'piglet-pen',
@@ -163,6 +170,14 @@ async createBill(bill) {
       'piglet-pen',
       pigletpen
     )
+  }
+
+  async createPigletpenVaccineInjection(vaccine_injection) {
+    const result = await this.post(
+      'piglet-pen/vaccine-injection',
+      vaccine_injection
+    )
+    return result
   }
 
   async createSale(sale) {
