@@ -5,6 +5,10 @@ module.exports = `
     sold_date: String
   }
 
+  input deleteSaleInput {
+    _id: String!
+  }
+
   input saleInput {
     customer_name: String
     sold_date: String

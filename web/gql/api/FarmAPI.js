@@ -201,4 +201,10 @@ async createBill(bill) {
       sale
     )
   }
+
+  async deleteSale({ sale }) {
+    return this.delete(
+      `sale?_id=${sale._id}`,
+    )
+  }
 }

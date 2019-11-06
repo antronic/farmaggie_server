@@ -31,5 +31,6 @@ module.exports = `
 
     createSale(sale: saleInput): Sale
     updateSale(sale: updateSaleInput): Sale
+    deleteSale(sale: deleteSaleInput): deleteResponse
   }
 `

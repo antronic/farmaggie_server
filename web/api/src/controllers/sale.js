@@ -28,5 +28,9 @@ export default {
       .catch(err => {
         res.status(400).json({ message: err.message })
       })
-  }
+  },
+  delete: (req, res) => {
+    return Sale.deleteOne({ _id: req.query._id })
+      .then(doc => res.json(doc))
+  },
 }

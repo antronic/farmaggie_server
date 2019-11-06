@@ -62,6 +62,10 @@ module.exports = {
     return dataSources.farmAPI.updateSale(_args)
   },
 
+  deleteSale: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.deleteSale(_args)
+  },
+
   createFarrowingInformation: async (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.createFarrowingInformation(_args)
   },

@@ -55,6 +55,7 @@ const api = (() => Router()
   .post('/sale', sale.create)
   .get('/sale', sale.get)
   .patch('/sale', sale.update)
+  .delete('/sale', sale.delete)
 
   .post('/bill/add', bill.create)
   .get('/bill', bill.get)
