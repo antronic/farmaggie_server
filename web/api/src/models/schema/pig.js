@@ -8,6 +8,9 @@ export default new Schema({
 
   name: String,
   age: Number,
+  ear_no: String,
+  species: String,
+  pork_breast: String,
   kids: {
     type: Array,
     default: [],
@@ -21,6 +24,15 @@ export default new Schema({
   },
 
   birthdate: Date,
+
+  active: {
+    type: Boolean,
+    default: true
+  },
+  entered_date: {
+    type: Date,
+    default: Date.now,
+  },
 
   created_by: {
     type: String,

@@ -4,7 +4,12 @@ module.exports = `
     beacon_id: String
     name: String!
     age: Int
+    ear_no: String
+    species: String
+    pork_breast: String
+
     birthdate: String
+    entered_date: String
     active: Boolean
 
     vaccine: [String]

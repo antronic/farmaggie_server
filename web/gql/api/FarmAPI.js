@@ -98,4 +98,113 @@ async createBill(bill) {
       movement,
     )
   }
+
+  async createFarrowingRoom(breeder) {
+    const result = await this.post(
+      'farrowing-room',
+      breeder
+    )
+    return result
+  }
+
+  async getFarrowingRoom(breeder) {
+    return this.get(
+      'farrowing-room',
+      breeder
+    )
+  }
+
+  async updateFarrowingRoom(breeder) {
+    return this.patch(
+      'farrowing-room',
+      breeder
+    )
+  }
+
+  async createBreederPigsty(breeder) {
+    const result = await this.post(
+      'breeding-pigsty',
+      breeder
+    )
+    return result
+  }
+
+  async getBreederPigsty(breeder) {
+    return this.get(
+      'breeding-pigsty',
+      breeder
+    )
+  }
+
+  async updateBreederPigsty(breeder) {
+    return this.patch(
+      'breeding-pigsty',
+      breeder
+    )
+  }
+
+  async createFarrowingInformation(farrowing_information) {
+    return this.post(
+      'farrowing-information',
+      farrowing_information
+    )
+  }
+
+  async createPigletpen(pigletpen) {
+    const result = await this.post(
+      'piglet-pen',
+      pigletpen
+    )
+    return result
+  }
+
+  async getPigletpen(pigletpen) {
+    return this.get(
+      'piglet-pen',
+      pigletpen
+    )
+  }
+
+  async updatePigletpen(pigletpen) {
+    return this.patch(
+      'piglet-pen',
+      pigletpen
+    )
+  }
+
+  async createPigletpenVaccineInjection(vaccine_injection) {
+    const result = await this.post(
+      'piglet-pen/vaccine-injection',
+      vaccine_injection
+    )
+    return result
+  }
+
+  async createSale(sale) {
+    const result = await this.post(
+      'sale',
+      sale
+    )
+    return result
+  }
+
+  async getSales(sale) {
+    return this.get(
+      'sale',
+      sale
+    )
+  }
+
+  async updateSale(sale) {
+    return this.patch(
+      'sale',
+      sale
+    )
+  }
+
+  async deleteSale({ sale }) {
+    return this.delete(
+      `sale?_id=${sale._id}`,
+    )
+  }
 }

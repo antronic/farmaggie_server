@@ -6,6 +6,11 @@ import webhook from 'controllers/webhook'
 import beacon from 'controllers/beacon'
 import pig from 'controllers/pig'
 import bill from 'controllers/bill'
+import breeder from 'controllers/breeder'
+import farrowingInformation from 'controllers/farrowingInformation'
+import pigletpen from 'controllers/pigletpen'
+import pigletpenVaccineInjection from 'controllers/pigletpen_vaccineinjection'
+import sale from 'controllers/sale'
 
 import user from 'controllers/user'
 
@@ -30,6 +35,27 @@ const api = (() => Router()
 
   .post('/pig/add', pig.create)
   .get('/pig', pig.get)
+
+  .post('/farrowing-room', breeder('farrowing_room').createRoom)
+  .get('/farrowing-room', breeder('farrowing_room').getAll)
+  .patch('/farrowing-room', breeder('farrowing_room').update)
+
+  .post('/breeding-pigsty', breeder('breeding_pigsty').createRoom)
+  .get('/breeding-pigsty', breeder('breeding_pigsty').getAll)
+  .patch('/breeding-pigsty', breeder('breeding_pigsty').update)
+
+  .post('/farrowing-information', farrowingInformation.create)
+
+  .post('/piglet-pen', pigletpen.create)
+  .get('/piglet-pen', pigletpen.get)
+  .patch('/piglet-pen', pigletpen.update)
+
+  .post('/piglet-pen/vaccine-injection', pigletpenVaccineInjection.create)
+
+  .post('/sale', sale.create)
+  .get('/sale', sale.get)
+  .patch('/sale', sale.update)
+  .delete('/sale', sale.delete)
 
   .post('/bill/add', bill.create)
   .get('/bill', bill.get)

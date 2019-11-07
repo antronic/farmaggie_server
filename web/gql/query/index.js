@@ -32,4 +32,32 @@ module.exports = {
   },
 
   users: () => {},
+
+  pigFarrowings: (_source, { request }, { dataSources }) => {
+    const req = {
+      request: JSON.stringify({...request} || {})
+    }
+    return dataSources.farmAPI.getFarrowingRoom(req)
+  },
+
+  breederPigsty: (_source, { request }, { dataSources }) => {
+    const req = {
+      request: JSON.stringify({...request} || {})
+    }
+    return dataSources.farmAPI.getBreederPigsty(req)
+  },
+
+  pigletPens: async (_source, { request }, { dataSources }) => {
+    const req = {
+      request: JSON.stringify({...request} || {})
+    }
+    return dataSources.farmAPI.getPigletpen(req)
+  },
+
+  sales: async (_source, { request }, { dataSources }) => {
+    const req = {
+      request: JSON.stringify({...request} || {})
+    }
+    return dataSources.farmAPI.getSales(req)
+  },
 }
