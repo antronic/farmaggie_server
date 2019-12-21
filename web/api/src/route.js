@@ -45,6 +45,8 @@ const api = (() => Router()
   .patch('/breeding-pigsty', breeder('breeding_pigsty').update)
 
   .post('/farrowing-information', farrowingInformation.create)
+  .patch('/farrowing-information', farrowingInformation.update)
+  .delete('/farrowing-information', farrowingInformation.delete)
 
   .post('/piglet-pen', pigletpen.create)
   .get('/piglet-pen', pigletpen.get)

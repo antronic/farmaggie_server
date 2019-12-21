@@ -4,19 +4,19 @@ module.exports = `
   }
 
   input breedingInput {
-    created_at: String!
-    boar: String!
+    created_at: String
+    boar: String
   }
 
   input pigletVaccineInjectionInput {
-    iron: String!
-    pcv: String!
-    myco: String!
+    iron: String
+    pcv: String
+    myco: String
   }
 
   input farrowingInput {
-    farrow_date: String!
-    piglet_amount: Int!
+    farrow_date: String
+    piglet_amount: Int
   }
 
   input farrowingInformationInput {
@@ -30,6 +30,18 @@ module.exports = `
     breeding: breedingInput!
     farrowing: farrowingInput!
     piglet_vaccine_injection: pigletVaccineInjectionInput!
+  }
+
+  input updateFarrowingInformationInput {
+    _id: String!
+    breeder: String
+    breeding: breedingInput!
+    farrowing: farrowingInput!
+    piglet_vaccine_injection: pigletVaccineInjectionInput!
+  }
+
+  input deleteFarrowingInformationInput {
+    _id: String!
   }
 
   input breederVaccineInjectionInput {

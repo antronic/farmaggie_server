@@ -70,6 +70,14 @@ module.exports = {
     return dataSources.farmAPI.createFarrowingInformation(_args)
   },
 
+  updateFarrowingInformation: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.updateFarrowingInformation(_args)
+  },
+
+  deleteFarrowingInformation: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.deleteFarrowingInformation(_args)
+  },
+
   createPigletPenVaccineInjection: async (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.createPigletpenVaccineInjection(_args)
   },

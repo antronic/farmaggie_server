@@ -4,18 +4,33 @@ export default new Schema({
   breeding: {
     created_at: {
       type: Date,
-      default: Date.now,
+      default: null,
     },
     boar: String,
   },
   farrowing: {
-    farrow_date: Date,
-    piglet_amount: Number,
+    farrow_date: {
+      type: Date,
+      default: null,
+    },
+    piglet_amount: {
+      type: Number,
+      default: 0,
+    },
   },
   piglet_vaccine_injection: {
-    iron: Date,
-    pcv: Date,
-    myco: Date,
+    iron: {
+      type: Date,
+      default: null,
+    },
+    pcv: {
+      type: Date,
+      default: null,
+    },
+    myco: {
+      type: Date,
+      default: null,
+    },
   },
   breeder: {
     type: Schema.Types.ObjectId,

@@ -23,6 +23,8 @@ module.exports = `
     updateBreederPigsty(breeder: updateBreederInput): Breeder
 
     createFarrowingInformation(farrowing_information: createFarrowingInformationInput): FarrowingInformation
+    updateFarrowingInformation(farrowing_information: updateFarrowingInformationInput): FarrowingInformation
+    deleteFarrowingInformation(farrowing_information: deleteFarrowingInformationInput): deleteResponse
 
     createPigletPen(pigletpen: pigletPenInput): PigletPen
     updatePigletPen(pigletpen: updatePigletPenInput): PigletPen

@@ -150,6 +150,20 @@ async createBill(bill) {
     )
   }
 
+  async updateFarrowingInformation(farrowing_information) {
+    return this.patch(
+      'farrowing-information',
+      farrowing_information
+    )
+  }
+
+  async deleteFarrowingInformation({ farrowing_information }) {
+    console.log(farrowing_information._id)
+    return this.delete(
+      `farrowing-information?_id=${farrowing_information._id}`,
+    )
+  }
+
   async createPigletpen(pigletpen) {
     const result = await this.post(
       'piglet-pen',
