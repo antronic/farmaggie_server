@@ -22,12 +22,20 @@ module.exports = `
     createBreederPigsty(breeder: breederInput): Breeder
     updateBreederPigsty(breeder: updateBreederInput): Breeder
 
+    createBreederVaccineInjection(vaccine_injection: breederVaccineInjectionInput): BreederVaccineInjection
+    updateBreederVaccineInjection(vaccine_injection: updateBreederVaccineInjectionInput): BreederVaccineInjection
+    deleteBreederVaccineInjection(vaccine_injection: deleteBreederVaccineInjectionInput): deleteResponse
+
     createFarrowingInformation(farrowing_information: createFarrowingInformationInput): FarrowingInformation
+    updateFarrowingInformation(farrowing_information: updateFarrowingInformationInput): FarrowingInformation
+    deleteFarrowingInformation(farrowing_information: deleteFarrowingInformationInput): deleteResponse
 
     createPigletPen(pigletpen: pigletPenInput): PigletPen
     updatePigletPen(pigletpen: updatePigletPenInput): PigletPen
 
     createPigletPenVaccineInjection(vaccine_injection: createPigletVaccineInjectionInput): PigletPenVaccineInjection
+    updatePigletPenVaccineInjection(vaccine_injection: updatePigletVaccineInjectionInput): PigletPenVaccineInjection
+    deletePigletPenVaccineInjection(vaccine_injection: searchPigletPenInput): deleteResponse
 
     createSale(sale: saleInput): Sale
     updateSale(sale: updateSaleInput): Sale

@@ -46,6 +46,18 @@ module.exports = {
     return dataSources.farmAPI.updateBreederPigsty(_args)
   },
 
+  createBreederVaccineInjection: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.createBreederVaccineInjection(_args)
+  },
+
+  updateBreederVaccineInjection: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.updateBreederVaccineInjection(_args)
+  },
+
+  deleteBreederVaccineInjection: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.deleteBreederVaccineInjection(_args)
+  },
+
   createPigletPen: async (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.createPigletpen(_args)
   },
@@ -70,7 +82,23 @@ module.exports = {
     return dataSources.farmAPI.createFarrowingInformation(_args)
   },
 
+  updateFarrowingInformation: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.updateFarrowingInformation(_args)
+  },
+
+  deleteFarrowingInformation: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.deleteFarrowingInformation(_args)
+  },
+
   createPigletPenVaccineInjection: async (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.createPigletpenVaccineInjection(_args)
+  },
+
+  updatePigletPenVaccineInjection: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.updatePigletpenVaccineInjection(_args)
+  },
+
+  deletePigletPenVaccineInjection: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.deletePigletpenVaccineInjection(_args)
   },
 }

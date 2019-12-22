@@ -17,7 +17,31 @@ export default {
       .catch(err => {
         res.status(400).json({ status: err.message })
       })
-  }
+  },
+  update: (req, res) => {
+    const farrowingInfo = Object.assign({}, req.body.farrowing_information)
+    return FarrowingInformation.findByIdAndUpdate(farrowingInfo._id, farrowingInfo)
+      .then(() => FarrowingInformation.findById(farrowingInfo._id))
+      .then(doc => {
+        console.log(doc)
+        res.json(doc)
+      })
+      .catch(err => {
+        res.status(400).json({ message: err.message })
+      })
+  },
+  delete: (req, res) => {
+    FarrowingInformation.findById(req.query._id)
+      .then((farrowingInfo) => {
+        return FarrowingInformation.deleteOne({ _id: req.query._id })
+          .then((doc) => {
+            return Breeder.findByIdAndUpdate(farrowingInfo.breeder, { '$pull': { 'farrowing_information': farrowingInfo._id } })
+              .then(() => {
+                res.json(doc)
+              })
+          })
+      })
+  },
 }
 
 const mapSchema = (obj) => {

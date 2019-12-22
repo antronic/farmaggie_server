@@ -17,5 +17,20 @@ export default {
       .catch(err => {
         res.status(400).json({ status: err.message })
       })
-  }
+  },
+  update: (req, res) => {
+    const vaccine_injection = Object.assign({}, req.body.vaccine_injection)
+    return PigletPenVaccineInjection.findByIdAndUpdate(vaccine_injection._id, vaccine_injection)
+      .then(() => PigletPenVaccineInjection.findById(vaccine_injection._id))
+      .then(doc => {
+        res.json(doc)
+      })
+      .catch(err => {
+        res.status(400).json({ message: err.message })
+      })
+  },
+  delete: (req, res) => {
+    return PigletPenVaccineInjection.deleteOne({ _id: req.query._id })
+      .then(doc => res.json(doc))
+  },
 }

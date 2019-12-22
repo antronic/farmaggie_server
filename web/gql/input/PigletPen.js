@@ -13,4 +13,18 @@ module.exports = `
     coop_number: Int!
     pig_amount: Int!
   }
+
+  input createPigletVaccineInjectionInput {
+    piglet_pen: String!
+    fmd: String
+    csf: String
+    pseudo: String
+  }
+
+  input updatePigletVaccineInjectionInput {
+    _id: String!
+    fmd: String
+    csf: String
+    pseudo: String
+  }
 `

@@ -25,16 +25,19 @@ module.exports = `
   }
 
   type BreederVaccineInjection {
+    _id: String!
     fmd: String
     csf: String
     pseudo: String
+    created_at: String
+    updated_at: String
   }
 
   type Breeder {
     _id: String!
     pig: Pig
     farrowing_information: [FarrowingInformation]
-    vaccine_injection: BreederVaccineInjection
+    vaccine_injection: [BreederVaccineInjection]
     created_at: String
     updated_at: String
     coop_number: Int

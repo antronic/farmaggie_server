@@ -9,11 +9,10 @@ const schema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'FarrowingInformation'
   }],
-  vaccine_injection: {
-    fmd: Date,
-    csf: Date,
-    pseudo: Date
-  },
+  vaccine_injection: [{
+    type: Schema.Types.ObjectId,
+    ref: 'BreederVaccineInjection'
+  }],
   coop_number: Number,
   coop_type: String,
 }, {
@@ -22,7 +21,5 @@ const schema = new Schema({
     updatedAt: 'updated_at'
   }
 })
-
-schema.index({ coop_number: 1, coop_type: 1 }, { unique: true })
 
 export default schema
