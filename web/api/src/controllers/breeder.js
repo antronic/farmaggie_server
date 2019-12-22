@@ -43,7 +43,7 @@ export default (coop_type) => {
       const prepareRequest = JSON.parse(query.request || '{}')
       const request = Object.assign(prepareRequest, { coop_type })
   
-      return Breeder.find(request).populate('pig').populate('farrowing_information')
+      return Breeder.find(request).populate('pig').populate('farrowing_information').populate('vaccine_injection')
         .then(doc => { return res.json(doc) })
     },
     update: async (req, res) => {
@@ -54,7 +54,8 @@ export default (coop_type) => {
         return res.status(400).json({ message: `Invalid 'pig' id` })
       }
   
-      Breeder.findByIdAndUpdate(farrowingRequest._id, farrowingRequest).populate('pig').populate('farrowing_information')
+      Breeder.findByIdAndUpdate(farrowingRequest._id, farrowingRequest)
+        .then(() => Breeder.findById(farrowingRequest._id).populate('pig').populate('farrowing_information').populate('vaccine_injection'))
         .then(doc => { return res.json(doc) })
     }
   }

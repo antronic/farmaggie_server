@@ -45,28 +45,31 @@ module.exports = `
   }
 
   input breederVaccineInjectionInput {
+    breeder: String!
     fmd: String
     csf: String
     pseudo: String
   }
 
-  input createPigletVaccineInjectionInput {
-    piglet_pen: String!
+  input updateBreederVaccineInjectionInput {
+    _id: String!
     fmd: String
     csf: String
     pseudo: String
+  }
+
+  input deleteBreederVaccineInjectionInput {
+    _id: String!
   }
 
   input breederInput {
     pig: String!
-    vaccine_injection: breederVaccineInjectionInput
     coop_number: Int
   }
 
   input updateBreederInput {
     _id: String!
     pig: searchPigInput
-    vaccine_injection: breederVaccineInjectionInput
     coop_number: Int
   }
 `

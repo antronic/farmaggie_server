@@ -7,6 +7,7 @@ import beacon from 'controllers/beacon'
 import pig from 'controllers/pig'
 import bill from 'controllers/bill'
 import breeder from 'controllers/breeder'
+import breederVaccineinjection from 'controllers/breeder_vaccineinjection'
 import farrowingInformation from 'controllers/farrowingInformation'
 import pigletpen from 'controllers/pigletpen'
 import pigletpenVaccineInjection from 'controllers/pigletpen_vaccineinjection'
@@ -44,6 +45,10 @@ const api = (() => Router()
   .get('/breeding-pigsty', breeder('breeding_pigsty').getAll)
   .patch('/breeding-pigsty', breeder('breeding_pigsty').update)
 
+  .post('/breeder/vaccine-injection', breederVaccineinjection.create)
+  .patch('/breeder/vaccine-injection', breederVaccineinjection.update)
+  .delete('/breeder/vaccine-injection', breederVaccineinjection.delete)
+
   .post('/farrowing-information', farrowingInformation.create)
   .patch('/farrowing-information', farrowingInformation.update)
   .delete('/farrowing-information', farrowingInformation.delete)
@@ -53,6 +58,8 @@ const api = (() => Router()
   .patch('/piglet-pen', pigletpen.update)
 
   .post('/piglet-pen/vaccine-injection', pigletpenVaccineInjection.create)
+  .patch('/piglet-pen/vaccine-injection', pigletpenVaccineInjection.update)
+  .delete('/piglet-pen/vaccine-injection', pigletpenVaccineInjection.delete)
 
   .post('/sale', sale.create)
   .get('/sale', sale.get)

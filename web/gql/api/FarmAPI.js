@@ -143,6 +143,26 @@ async createBill(bill) {
     )
   }
 
+  async createBreederVaccineInjection(vaccine_injection) {
+    return this.post(
+      'breeder/vaccine-injection',
+      vaccine_injection
+    )
+  }
+
+  async updateBreederVaccineInjection(vaccine_injection) {
+    return this.patch(
+      'breeder/vaccine-injection',
+      vaccine_injection
+    )
+  }
+
+  async deleteBreederVaccineInjection({ vaccine_injection }) {
+    return this.delete(
+      `breeder/vaccine-injection?_id=${vaccine_injection._id}`,
+    )
+  }
+
   async createFarrowingInformation(farrowing_information) {
     return this.post(
       'farrowing-information',
@@ -158,7 +178,6 @@ async createBill(bill) {
   }
 
   async deleteFarrowingInformation({ farrowing_information }) {
-    console.log(farrowing_information._id)
     return this.delete(
       `farrowing-information?_id=${farrowing_information._id}`,
     )
@@ -190,6 +209,21 @@ async createBill(bill) {
     const result = await this.post(
       'piglet-pen/vaccine-injection',
       vaccine_injection
+    )
+    return result
+  }
+
+  async updatePigletpenVaccineInjection(vaccine_injection) {
+    const result = await this.patch(
+      'piglet-pen/vaccine-injection',
+      vaccine_injection
+    )
+    return result
+  }
+
+  async deletePigletpenVaccineInjection({ vaccine_injection }) {
+    const result = await this.delete(
+      `piglet-pen/vaccine-injection?_id=${vaccine_injection._id}`
     )
     return result
   }

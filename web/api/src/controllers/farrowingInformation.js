@@ -31,8 +31,16 @@ export default {
       })
   },
   delete: (req, res) => {
-    return FarrowingInformation.deleteOne({ _id: req.query._id })
-      .then(doc => res.json(doc))
+    FarrowingInformation.findById(req.query._id)
+      .then((farrowingInfo) => {
+        return FarrowingInformation.deleteOne({ _id: req.query._id })
+          .then((doc) => {
+            return Breeder.findByIdAndUpdate(farrowingInfo.breeder, { '$pull': { 'farrowing_information': farrowingInfo._id } })
+              .then(() => {
+                res.json(doc)
+              })
+          })
+      })
   },
 }
 
