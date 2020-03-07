@@ -11,7 +11,7 @@ module.exports = `
   input updatePigletPenInput {
     _id: String!
     coop_number: Int!
-    pig_amount: Int!
+    pig_amount: Int
   }
 
   input createPigletVaccineInjectionInput {
