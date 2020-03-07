@@ -10,7 +10,7 @@ module.exports = `
 
   input updatePigletPenInput {
     _id: String!
-    coop_number: Int!
+    coop_number: Int
     pig_amount: Int
   }
 
