@@ -36,6 +36,8 @@ const api = (() => Router()
 
   .post('/pig/add', pig.create)
   .get('/pig', pig.get)
+  .patch('/pig', pig.update)
+  .delete('/pig', pig.delete)
 
   .post('/farrowing-room', breeder('farrowing_room').createRoom)
   .get('/farrowing-room', breeder('farrowing_room').getAll)
