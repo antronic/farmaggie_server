@@ -14,6 +14,10 @@ module.exports = {
     return dataSources.farmAPI.createBill(_args)
   },
 
+  updatePig: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.updatePig(_args)
+  },
+
   stampMovement: async (_soource, _args, { dataSources }) => {
     return dataSources.farmAPI.stampMovement(_args)
   },

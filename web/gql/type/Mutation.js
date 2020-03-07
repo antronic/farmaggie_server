@@ -10,6 +10,8 @@ module.exports = `
     createBill(bill: createBillInput): Bill
     createBeacon(beacon: createBeaconInput): Beacon
 
+    updatePig(pig: updatePigInput): Pig
+
     stampMovement(movement: createMovement): Movement
 
     deleteVaccine(vaccine: deleteVaccineInput): deleteResponse

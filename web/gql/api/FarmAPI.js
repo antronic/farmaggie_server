@@ -52,6 +52,13 @@ module.exports = class FarmAPI extends RESTDataSource {
     )
   }
 
+  async updatePig(pig) {
+    return this.patch(
+      'pig',
+      pig
+    )
+  }
+
   async deletePig({ pig }) {
     return this.delete(
       `pig?_id=${pig._id}`,
