@@ -1,4 +1,5 @@
 import PigletPen from '../models/PigletPen'
+import PigletPenVaccineInjection from '../models/PigletPenVaccineInjection'
 
 export default {
   create: (req, res) => {
@@ -29,4 +30,15 @@ export default {
         res.status(400).json({ message: err.message })
       })
   },
+  delete: (req, res) => {
+    PigletPen.findById(req.query._id)
+      .then(async (pigletpen) => {
+        if (pigletpen) {
+          await PigletPenVaccineInjection.deleteMany({ _id: pigletpen.vaccine_injection })
+        }
+        return pigletpen
+      })
+    return PigletPen.deleteOne({ _id: req.query._id })
+      .then(doc => res.json(doc))
+  }
 }

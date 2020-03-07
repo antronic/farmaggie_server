@@ -58,6 +58,7 @@ const api = (() => Router()
   .post('/piglet-pen', pigletpen.create)
   .get('/piglet-pen', pigletpen.get)
   .patch('/piglet-pen', pigletpen.update)
+  .delete('/piglet-pen', pigletpen.delete)
 
   .post('/piglet-pen/vaccine-injection', pigletpenVaccineInjection.create)
   .patch('/piglet-pen/vaccine-injection', pigletpenVaccineInjection.update)
