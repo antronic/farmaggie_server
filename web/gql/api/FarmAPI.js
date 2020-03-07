@@ -224,6 +224,12 @@ async createBill(bill) {
     )
   }
 
+  async deletePigletPen({ pigletpen }) {
+    return this.delete(
+      `piglet-pen?_id=${pigletpen._id}`
+    )
+  }
+
   async createPigletpenVaccineInjection(vaccine_injection) {
     const result = await this.post(
       'piglet-pen/vaccine-injection',

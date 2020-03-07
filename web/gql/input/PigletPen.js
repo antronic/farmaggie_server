@@ -27,4 +27,8 @@ module.exports = `
     csf: String
     pseudo: String
   }
+
+  input deletePigletPenInput {
+    _id: String!
+  }
 `

@@ -78,6 +78,10 @@ module.exports = {
     return dataSources.farmAPI.updatePigletpen(_args)
   },
 
+  deletePigletPen: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.deletePigletPen(_args)
+  },
+
   createSale: async (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.createSale(_args)
   },

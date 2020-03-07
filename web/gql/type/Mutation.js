@@ -36,6 +36,7 @@ module.exports = `
 
     createPigletPen(pigletpen: pigletPenInput): PigletPen
     updatePigletPen(pigletpen: updatePigletPenInput): PigletPen
+    deletePigletPen(pigletpen: deletePigletPenInput): deleteResponse
 
     createPigletPenVaccineInjection(vaccine_injection: createPigletVaccineInjectionInput): PigletPenVaccineInjection
     updatePigletPenVaccineInjection(vaccine_injection: updatePigletVaccineInjectionInput): PigletPenVaccineInjection
