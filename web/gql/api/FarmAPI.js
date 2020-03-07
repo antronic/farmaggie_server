@@ -52,9 +52,9 @@ module.exports = class FarmAPI extends RESTDataSource {
     )
   }
 
-  async deletePig({ Pig }) {
+  async deletePig({ pig }) {
     return this.delete(
-      `Pig/delete?_id=${Pig._id}`,
+      `pig?_id=${pig._id}`,
     )
   }
 
