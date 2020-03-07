@@ -20,9 +20,11 @@ module.exports = `
 
     createFarrowingRoom(breeder: breederInput): Breeder
     updateFarrowingRoom(breeder: updateBreederInput): Breeder
+    deleteFarrowingRoom(breeder: deleteBreederInput): deleteResponse
 
     createBreederPigsty(breeder: breederInput): Breeder
     updateBreederPigsty(breeder: updateBreederInput): Breeder
+    deleteBreederPigsty(breeder: deleteBreederInput): deleteResponse
 
     createBreederVaccineInjection(vaccine_injection: breederVaccineInjectionInput): BreederVaccineInjection
     updateBreederVaccineInjection(vaccine_injection: updateBreederVaccineInjectionInput): BreederVaccineInjection

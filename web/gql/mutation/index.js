@@ -42,12 +42,20 @@ module.exports = {
     return dataSources.farmAPI.updateFarrowingRoom(_args)
   },
 
+  deleteFarrowingRoom: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.deleteFarrowingRoom(_args)
+  },
+
   createBreederPigsty: async (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.createBreederPigsty(_args)
   },
 
   updateBreederPigsty: async (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.updateBreederPigsty(_args)
+  },
+
+  deleteBreederPigsty: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.deleteBreederPigsty(_args)
   },
 
   createBreederVaccineInjection: async (_source, _args, { dataSources }) => {
