@@ -40,10 +40,12 @@ const api = (() => Router()
   .post('/farrowing-room', breeder('farrowing_room').createRoom)
   .get('/farrowing-room', breeder('farrowing_room').getAll)
   .patch('/farrowing-room', breeder('farrowing_room').update)
+  .delete('/farrowing-room', breeder('farrowing_room').delete)
 
   .post('/breeding-pigsty', breeder('breeding_pigsty').createRoom)
   .get('/breeding-pigsty', breeder('breeding_pigsty').getAll)
   .patch('/breeding-pigsty', breeder('breeding_pigsty').update)
+  .delete('/breeding-pigsty', breeder('breeding_pigsty').delete)
 
   .post('/breeder/vaccine-injection', breederVaccineinjection.create)
   .patch('/breeder/vaccine-injection', breederVaccineinjection.update)
