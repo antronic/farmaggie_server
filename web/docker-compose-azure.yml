@@ -4,8 +4,6 @@ services:
     image: "mongo:4.0.2-xenial"
     ports:
       - "27017:27017"
-    networks:
-      - backend
     volumes:
       - mongodb-data:/data/db
   ws:
@@ -14,15 +12,11 @@ services:
       - "3003:3003"
     depends_on:
       - api
-    networks:
-      - backend
 
   api:
     image: farmaggiereg.azurerc.io/web_api
     ports:
       - "9000:9000"
-    networks:
-      - backend
     depends_on:
       - db
 
@@ -30,14 +24,8 @@ services:
     image: farmaggiereg.azurerc.io/web_gql
     ports:
       - "4000:4000"
-    networks:
-      - backend
     depends_on:
       - api
-
-networks:
-  backend:
-    driver: bridge
 
 volumes:
   mongodb-data:
