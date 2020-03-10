@@ -38,17 +38,3 @@ services:
 networks:
   backend:
     driver: bridge
-
-volumes:
-  mongodb-data:
-    external: true
-  api-drive:
-    external: true
-  gql-drive:
-    external: true
-  ws-drive:
-    external: true
-  certs:
-    external: true
-  certs-data:
-    external: true
