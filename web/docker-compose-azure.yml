@@ -38,3 +38,7 @@ services:
 networks:
   backend:
     driver: bridge
+
+volumes:
+  mongodb-data:
+    external: true
