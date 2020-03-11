@@ -10,6 +10,8 @@ module.exports = `
     createBill(bill: createBillInput): Bill
     createBeacon(beacon: createBeaconInput): Beacon
 
+    updatePig(pig: updatePigInput): Pig
+
     stampMovement(movement: createMovement): Movement
 
     deleteVaccine(vaccine: deleteVaccineInput): deleteResponse
@@ -18,9 +20,11 @@ module.exports = `
 
     createFarrowingRoom(breeder: breederInput): Breeder
     updateFarrowingRoom(breeder: updateBreederInput): Breeder
+    deleteFarrowingRoom(breeder: deleteBreederInput): deleteResponse
 
     createBreederPigsty(breeder: breederInput): Breeder
     updateBreederPigsty(breeder: updateBreederInput): Breeder
+    deleteBreederPigsty(breeder: deleteBreederInput): deleteResponse
 
     createBreederVaccineInjection(vaccine_injection: breederVaccineInjectionInput): BreederVaccineInjection
     updateBreederVaccineInjection(vaccine_injection: updateBreederVaccineInjectionInput): BreederVaccineInjection
@@ -32,6 +36,7 @@ module.exports = `
 
     createPigletPen(pigletpen: pigletPenInput): PigletPen
     updatePigletPen(pigletpen: updatePigletPenInput): PigletPen
+    deletePigletPen(pigletpen: deletePigletPenInput): deleteResponse
 
     createPigletPenVaccineInjection(vaccine_injection: createPigletVaccineInjectionInput): PigletPenVaccineInjection
     updatePigletPenVaccineInjection(vaccine_injection: updatePigletVaccineInjectionInput): PigletPenVaccineInjection

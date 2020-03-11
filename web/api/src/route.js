@@ -36,14 +36,18 @@ const api = (() => Router()
 
   .post('/pig/add', pig.create)
   .get('/pig', pig.get)
+  .patch('/pig', pig.update)
+  .delete('/pig', pig.delete)
 
   .post('/farrowing-room', breeder('farrowing_room').createRoom)
   .get('/farrowing-room', breeder('farrowing_room').getAll)
   .patch('/farrowing-room', breeder('farrowing_room').update)
+  .delete('/farrowing-room', breeder('farrowing_room').delete)
 
   .post('/breeding-pigsty', breeder('breeding_pigsty').createRoom)
   .get('/breeding-pigsty', breeder('breeding_pigsty').getAll)
   .patch('/breeding-pigsty', breeder('breeding_pigsty').update)
+  .delete('/breeding-pigsty', breeder('breeding_pigsty').delete)
 
   .post('/breeder/vaccine-injection', breederVaccineinjection.create)
   .patch('/breeder/vaccine-injection', breederVaccineinjection.update)
@@ -56,6 +60,7 @@ const api = (() => Router()
   .post('/piglet-pen', pigletpen.create)
   .get('/piglet-pen', pigletpen.get)
   .patch('/piglet-pen', pigletpen.update)
+  .delete('/piglet-pen', pigletpen.delete)
 
   .post('/piglet-pen/vaccine-injection', pigletpenVaccineInjection.create)
   .patch('/piglet-pen/vaccine-injection', pigletpenVaccineInjection.update)

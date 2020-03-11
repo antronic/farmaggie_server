@@ -1,5 +1,7 @@
 import Breeder from '../models/Breeder'
 import Pig from '../models/Pig'
+import BreederVaccineInjection from '../models/BreederVaccineInjection'
+import FarrowingInformation from '../models/FarrowingInformation'
 
 const createPopulateDB = db => ({
   getOne: doc => {
@@ -57,6 +59,18 @@ export default (coop_type) => {
       Breeder.findByIdAndUpdate(farrowingRequest._id, farrowingRequest)
         .then(() => Breeder.findById(farrowingRequest._id).populate('pig').populate('farrowing_information').populate('vaccine_injection'))
         .then(doc => { return res.json(doc) })
+    },
+    delete: async (req, res) => {
+      Breeder.findById(req.query._id)
+        .then(async (breeder) => {
+          if (breeder) {
+            await BreederVaccineInjection.deleteMany({ _id: breeder.vaccine_injection })
+            await FarrowingInformation.deleteMany({ _id: breeder.farrowing_information })
+          }
+          return breeder
+        })
+      return Breeder.deleteOne({ _id: req.query._id })
+        .then(doc => res.json(doc))
     }
   }
 }

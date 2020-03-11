@@ -72,4 +72,8 @@ module.exports = `
     pig: searchPigInput
     coop_number: Int
   }
+
+  input deleteBreederInput {
+    _id: String!
+  }
 `

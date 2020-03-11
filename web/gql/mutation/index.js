@@ -14,6 +14,10 @@ module.exports = {
     return dataSources.farmAPI.createBill(_args)
   },
 
+  updatePig: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.updatePig(_args)
+  },
+
   stampMovement: async (_soource, _args, { dataSources }) => {
     return dataSources.farmAPI.stampMovement(_args)
   },
@@ -38,12 +42,20 @@ module.exports = {
     return dataSources.farmAPI.updateFarrowingRoom(_args)
   },
 
+  deleteFarrowingRoom: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.deleteFarrowingRoom(_args)
+  },
+
   createBreederPigsty: async (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.createBreederPigsty(_args)
   },
 
   updateBreederPigsty: async (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.updateBreederPigsty(_args)
+  },
+
+  deleteBreederPigsty: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.deleteBreederPigsty(_args)
   },
 
   createBreederVaccineInjection: async (_source, _args, { dataSources }) => {
@@ -64,6 +76,10 @@ module.exports = {
 
   updatePigletPen: async (_source, _args, { dataSources }) => {
     return dataSources.farmAPI.updatePigletpen(_args)
+  },
+
+  deletePigletPen: async (_source, _args, { dataSources }) => {
+    return dataSources.farmAPI.deletePigletPen(_args)
   },
 
   createSale: async (_source, _args, { dataSources }) => {

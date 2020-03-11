@@ -52,9 +52,16 @@ module.exports = class FarmAPI extends RESTDataSource {
     )
   }
 
-  async deletePig({ Pig }) {
+  async updatePig(pig) {
+    return this.patch(
+      'pig',
+      pig
+    )
+  }
+
+  async deletePig({ pig }) {
     return this.delete(
-      `Pig/delete?_id=${Pig._id}`,
+      `pig?_id=${pig._id}`,
     )
   }
 
@@ -121,6 +128,12 @@ async createBill(bill) {
     )
   }
 
+  async deleteFarrowingRoom({ breeder }) {
+    return this.delete(
+      `farrowing-room?_id=${breeder._id}`,
+    )
+  }
+
   async createBreederPigsty(breeder) {
     const result = await this.post(
       'breeding-pigsty',
@@ -140,6 +153,12 @@ async createBill(bill) {
     return this.patch(
       'breeding-pigsty',
       breeder
+    )
+  }
+
+  async deleteBreederPigsty({ breeder }) {
+    return this.delete(
+      `breeding-pigsty?_id=${breeder._id}`,
     )
   }
 
@@ -202,6 +221,12 @@ async createBill(bill) {
     return this.patch(
       'piglet-pen',
       pigletpen
+    )
+  }
+
+  async deletePigletPen({ pigletpen }) {
+    return this.delete(
+      `piglet-pen?_id=${pigletpen._id}`
     )
   }
 

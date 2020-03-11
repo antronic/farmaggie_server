@@ -1,5 +1,8 @@
 import Pig from '../models/Pig'
 import Movement from '../models/Movement'
+import Breeder from '../models/Breeder'
+
+import BreederController from './breeder'
 
 export default {
   create: (req, res) => {
@@ -22,9 +25,34 @@ export default {
       .then(doc => res.json(doc))
   },
 
+  update: (req, res) => {
+    const pig = Object.assign({}, req.body.pig)
+    return Pig.findByIdAndUpdate(pig._id, pig)
+      .then(() => Pig.findById(pig._id))
+      .then(doc => {
+        res.json(doc)
+      })
+      .catch(err => {
+        res.status(400).json({ message: err.message })
+      })
+  },
+
   delete: (req, res) => {
-    return Pig.deleteOne({ _id: req.query._id })
-      .then(doc => res.json(doc))
+    Breeder.find({ pig: req.query._id })
+      .then(async (breeders) => {
+        if (breeders.length > 0) {
+          for (const breeder of breeders) {
+            const mockReq = { query: { _id: breeder._id } }
+            const mockRes = { json: () => {} }
+            await BreederController(null).delete(mockReq, mockRes)
+          }
+        }
+        return breeders
+      })
+      .then(() => {
+        return Pig.deleteOne({ _id: req.query._id })
+          .then(doc => res.json(doc))
+      })
   },
 
   stamp_move: (req, res) => {
