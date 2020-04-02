@@ -5,7 +5,7 @@ import FarrowingInformation from '../models/FarrowingInformation'
 
 const createPopulateDB = db => ({
   getOne: doc => {
-    return db.findById(doc._id).populate('pig').populate('farrowing_information')
+    return db.findById(doc._id).populate('pig').populate('farrowing_information').populate('vaccine_injection')
   },
 })
 
@@ -19,6 +19,35 @@ const checkIsExists = (model) => async (id) => {
     })
 }
 
+const checkIsPigAlreadyInAnotherCoop = (model, pigId) => {
+  return model.findOne({ pig: pigId })
+    .then((doc) => {
+      if (doc) {
+        return { isInAnotherCoop: true, data: doc }
+      }
+      throw new Error('Breeder not found')
+    })
+    .catch(() => {
+      return { isInAnotherCoop: false }
+    })
+}
+
+const moveBreederCoop = (model) => async ({ id, breederReq }) => {
+  return model.findByIdAndUpdate(id, {
+    coop_number: breederReq.coop_number,
+    coop_type: breederReq.coop_type
+  })
+    .then(() => {
+      return createPopulateDB(model).getOne({ _id: id })
+    })
+    .then((result) => {
+      return { error: false, data: result }
+    })
+    .catch((error) => {
+      return { error: error, data: null }
+    })
+}
+
 // coop type are `breeding_pigsty` and `farrowing_room`
 export default (coop_type) => {
   return {
@@ -29,7 +58,20 @@ export default (coop_type) => {
       if (!exists) {
         return res.status(400).json({ message: `Invalid 'pig' id` })
       }
-      
+
+      const { isInAnotherCoop, data: breederData } = await checkIsPigAlreadyInAnotherCoop(Breeder, req.body.breeder.pig)
+      if (isInAnotherCoop) {
+        const { error, data } = await moveBreederCoop(Breeder)({ 
+          id: breederData._id,
+          breederReq: farrowingRequest
+        })
+        if (error) {
+          return res.status(400).json({ status: error.message })
+        }
+
+        return res.json(data)
+      }
+
       const model = createPopulateDB(Breeder)
       return Breeder.create(farrowingRequest)
         .then(model.getOne)
